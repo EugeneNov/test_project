@@ -263,3 +263,29 @@ for (let i = 0; i < 2; i++) {
 console.log(personalMovieDB);
 // ?конец
  */
+// ! Функции
+// ? Function declaretion
+function showMessage(text) {
+	console.log(text);
+}
+showMessage("lil");
+
+let num = 20;
+function showMessage() {
+	num = 55;
+	return num;
+}
+showMessage();
+console.log(num);
+
+function calc(a, b) {
+	return a + b;
+}
+console.log(calc(5, 6));
+console.log(calc(35, 44));
+
+// ? Function expression
+let bz = function (a, b, c) {
+	return a + b + c;
+};
+console.log(bz(3, 4, 2));
