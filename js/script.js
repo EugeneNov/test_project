@@ -23,7 +23,7 @@
 
 "use strict";
 
-const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели", "");
+/* const numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели", "");
 console.log(numberOfFilms);
 
 const personalMovieDB = {
@@ -42,3 +42,38 @@ const filmName1 = prompt("Один из последних просмотрен�
 personalMovieDB.movies[filmName1] = filmRating1;
 personalMovieDB.movies[filmName2] = filmRating2;
 console.log(personalMovieDB);
+ */
+// ! Условия
+if (4 == 9) {
+	console.log("OK!");
+} else {
+	console.log("error");
+}
+
+const numB = 23;
+if (numB > 70) {
+	console.log(">3");
+} else if (numB < 50) {
+	console.log("<50");
+} else {
+	console.log("fuck you!");
+}
+// * Тернарный оператор, который работает с 3мя аргументами
+numB == 23 ? console.log("numB=23") : console.log("fuck you!");
+
+// * Switch
+const num = 20;
+switch (num) {
+	case 22:
+		console.log("num=22");
+		break;
+	case 21:
+		console.log("num=21");
+		break;
+	case 24:
+		console.log("num=24");
+		break;
+	default:
+		console.log("fuck you!");
+		break;
+}
