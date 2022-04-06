@@ -44,7 +44,7 @@ personalMovieDB.movies[filmName2] = filmRating2;
 console.log(personalMovieDB);
  */
 // ! Условия
-if (4 == 9) {
+/* if (4 == 9) {
 	console.log("OK!");
 } else {
 	console.log("error");
@@ -76,4 +76,25 @@ switch (num) {
 	default:
 		console.log("fuck you!");
 		break;
+} */
+// ! Циклы
+/* let num = 50;
+
+while (num <= 55) {
+	console.log(num);
+	num++;
 }
+
+do {
+	console.log(num);
+	num++;
+}
+while (num <= 55);
+
+for (let i = 1; i < 8; i++){
+	if (i === 6) {
+		//break;
+		continue;
+	}
+	console.log(i);
+} */
