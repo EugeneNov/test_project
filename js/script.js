@@ -264,7 +264,7 @@ console.log(personalMovieDB);
 // ?конец
  */
 // ! Функции
-// ? Function declaretion
+/* // ? Function declaretion
 function showMessage(text) {
 	console.log(text);
 }
@@ -289,3 +289,9 @@ let bz = function (a, b, c) {
 	return a + b + c;
 };
 console.log(bz(3, 4, 2));
+
+const calk = (a, b, c) => {
+	return a + b + c;
+};
+console.log(calk(3, 4, 2));
+ */
