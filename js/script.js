@@ -452,3 +452,13 @@ while (i < 2) {
 	i++;
 }
 console.log(personalMovieDB); */
+
+// ! Callback функции
+function iLern(lang, callback) {
+	console.log(`Я учу: ${lang}`);
+	callback();
+}
+function afterTimeout() {
+	console.log("After timeOut!");
+}
+iLern("JS", afterTimeout);
