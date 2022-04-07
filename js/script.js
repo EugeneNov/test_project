@@ -339,4 +339,6 @@ const num = 15.5;
 console.log(Math.round(num));
 
 const numQ = "15.9px";
-console.log(parseInt(numQ));
+/* console.log(parseInt(numQ));
+console.log(parseFloat(numQ)); */
+console.log(Math.round(parseFloat(numQ)));
