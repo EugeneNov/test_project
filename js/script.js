@@ -323,7 +323,7 @@ console.log(checkAge(19));
  */
 
 // ! Методы и свойства строк и чисел
-const str = "testLul",
+/* const str = "testLul",
 	arr = [1, 2, 3];
 
 console.log(arr.length);
@@ -339,6 +339,116 @@ const num = 15.5;
 console.log(Math.round(num));
 
 const numQ = "15.9px";
-/* console.log(parseInt(numQ));
-console.log(parseFloat(numQ)); */
-console.log(Math.round(parseFloat(numQ)));
+console.log(parseInt(numQ));
+console.log(parseFloat(numQ));
+console.log(Math.round(parseFloat(numQ))); */
+//!Практика 018
+/* Задание на урок:
+
+1) Первую часть задания повторить по уроку
+
+2) Создать функцию showMyDB, которая будет проверять свойство privat. Если стоит в позиции
+false - выводит в консоль главный объект программы
+
+3) Создать функцию writeYourGenres в которой пользователь будет 3 раза отвечать на вопрос 
+"Ваш любимый жанр под номером ${номер по порядку}". Каждый ответ записывается в массив данных
+genres
+
+P.S. Функции вызывать не обязательно*/
+// ? Начало
+/*
+let numberOfFilms;
+
+function start() {
+	numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели", "");
+
+	while (!numberOfFilms) {
+		numberOfFilms = +prompt("Сколько фильмов вы уже посмотрели", "");
+	}
+}
+start();
+
+const personalMovieDB = {
+	count: numberOfFilms,
+	movies: {},
+	actors: {},
+	genres: [],
+	privat: false,
+};
+
+function writeYourGenres() {
+	for (let i = 0; i < 3; i++) {
+		let personalGenres = prompt(`Ваш любимый жанр под номером ${i + 1}`, "");
+		if (!personalGenres) {
+			console.log(`Ваш любимый жанр под номером ${i + 1} ${personalGenres}`);
+			i--;
+		} else {
+			personalMovieDB.genres[i] = personalGenres;
+		}
+	}
+}
+writeYourGenres();
+
+function rememberMyFilms() {
+	for (let i = 0; i < 2; i++) {
+		let filmName = prompt("Один из последних просмотренных фильмов?", ""),
+			filmRating = +prompt("На сколько оцените его?", "");
+		if (!filmName || !filmRating || filmName.length > 50) {
+			console.log("Введите данные");
+			i--;
+			continue;
+		}
+		personalMovieDB.movies[filmName] = filmRating;
+	}
+}
+rememberMyFilms();
+
+function detectPersonalLevel(){
+	if (personalMovieDB.count < 10) {
+		console.log("Просмотрено довольно мало фильмов");
+	} else if (personalMovieDB.count <= 30) {
+		console.log("Вы классический зритель");
+	} else if (personalMovieDB.count > 30) {
+		console.log("Вы киноман");
+	} else {
+		console.log("Произошла ошибка");
+	}
+}
+function showMyDB() {
+	if (!personalMovieDB.privat) {
+		console.log(personalMovieDB);
+	}
+}
+showMyDB();
+// ? Конец
+*/
+// function detectPersonalLevel() {
+// 	personalMovieDB.count < 10
+// 		? console.log("Просмотрено довольно мало фильмов")
+// 		: personalMovieDB.count <= 30
+// 		? console.log("Вы классический зритель")
+// 		: personalMovieDB.count > 30
+// 		? console.log("Вы киноман")
+// 		: console.log("Произошла ошибка");
+// }
+// detectPersonalLevel();
+
+/* 
+let filmName,
+	filmRating,
+	i = 0;
+
+while (i < 2) {
+	filmName = prompt("Один из последних просмотренных фильмов?", "");
+	filmRating = +prompt("На сколько оцените его?", "");
+	if (!filmName || !filmRating || filmName.length > 50) {
+		console.log(
+			"пользователь не мог оставить ответ в виде пустой строки, отменить ответ или ввести название фильма длинее, чем 50 символов"
+		);
+		i--;
+		continue;
+	}
+	personalMovieDB.movies[filmName] = filmRating;
+	i++;
+}
+console.log(personalMovieDB); */
