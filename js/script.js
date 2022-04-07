@@ -39,6 +39,23 @@ console.log(obj["age"]);
 
 let arr = [23, "lol", {}, [23, "lol", {}, [], "dick"], "dick"];
 console.log(arr[2]);
+
+"" + 1 + 0 = "10" //
+"" - 1 + 0 = -1 //
+true + false = 1
+6 / "3" = 2
+"2" * "3" = 6
+4 + 5 + "px" = "9px"
+"$" + 4 + 5 = "$45"
+"4" - 2 = 2
+"4px" - 2 = NaN
+7 / 0 = Infinity
+"  -9  " + 5 = "  -9  5" //
+"  -9  " - 5 = -14 //
+null + 1 = 1 //
+undefined + 1 = NaN //
+" \t \n" - 2 = -2 //
+
 // !Взаимодействие с пользователем
 alert("Hi Nigga!");
 const rezQues = confirm("Ты чмо?");
@@ -294,4 +311,32 @@ const calk = (a, b, c) => {
 	return a + b + c;
 };
 console.log(calk(3, 4, 2));
+
+function checkAge(age) {
+	return age > 18 ? true : confirm("Родители разрешили?");
+}
+console.log(checkAge(19));
+function checkAge(age) {
+	return age > 18 || confirm("Родители разрешили?");
+}
+console.log(checkAge(19));
  */
+
+// ! Методы и свойства строк и чисел
+const str = "testLul",
+	arr = [1, 2, 3];
+
+console.log(arr.length);
+const someText =
+		"Далеко-далеко за словесными, горами в стране гласных и согласных живут рыбные тексты. Языкового грустный ipsum дорогу необходимыми одна. Великий не семантика, предложения журчит ты проектах выйти свою возвращайся злых заголовок подзаголовок что?",
+	slicedText = someText.indexOf("рыбные");
+
+console.log(someText.slice(slicedText, -1));
+console.log(someText.substring(slicedText, slicedText + 6));
+console.log(someText.substr(slicedText, slicedText + 6));
+
+const num = 15.5;
+console.log(Math.round(num));
+
+const numQ = "15.9px";
+console.log(parseInt(numQ));
