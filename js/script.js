@@ -454,11 +454,53 @@ while (i < 2) {
 console.log(personalMovieDB); */
 
 // ! Callback функции
-function iLern(lang, callback) {
+/* function iLern(lang, callback) {
 	console.log(`Я учу: ${lang}`);
 	callback();
 }
 function afterTimeout() {
 	console.log("After timeOut!");
 }
-iLern("JS", afterTimeout);
+iLern("JS", afterTimeout); */
+// ! C 020
+const options = {
+	name: "test",
+	width: 1024,
+	height: 1024,
+	colors: {
+		border: "black",
+		bg: "red",
+	},
+	makeTest: function () {
+		// TODO Это метод, тоесть функция внутри обьекта
+		console.log("Test");
+	},
+};
+options.makeTest();
+// TODO Деструктуризация объектов (вытащить данные обьекта в переменные)
+const { border, bg } = options.colors; // TODO создали 2 переменные из объекта colors
+console.log(border);
+console.log(bg);
+
+console.log(Object.keys(options).length);
+// TODO Object.keys(название объекта) --выдает массив со всеми свойствами объекта.
+// TODO .length --колличество ключей
+
+console.log(options.colors.bg);
+console.log(options["colors"]["bg"]);
+delete options.name; // TODO Удалить свойство объекта
+console.log(options);
+
+for (let key in options) {
+	// TODO перебор свойств обьекта
+	if (typeof options[key] === "object") {
+		// TODO свойство которое тоже обьект
+		for (let i in options[key]) {
+			// TODO перебор его значений
+			console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
+		}
+	} else {
+		// TODO перебор обычных свойств
+		console.log(`Свойство ${key} имеет значение ${options[key]}`);
+	}
+}
