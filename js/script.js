@@ -506,7 +506,7 @@ for (let key in options) {
 }
  */
 // ! 021 Массивы и псевдомассивы
-
+/* 
 const arr = [20, 10, 44, 32];
 arr.sort(compareNum);
 function compareNum(a, b) {
@@ -545,3 +545,81 @@ console.log(someShit);
 console.log(someShit);
 console.log(someShit.join("# "));
 // TODO --слепить элементы массива в строку через разделитель
+ */
+// ! 022 022 Передача по ссылке или по значению, Spread оператор (ES6-ES9)
+
+// ! передача по значению работает только для примитивных типов данных (числа, строки, булевые данные), при работе с объектами передача по ссылке
+/* 
+let a = 10,
+	b = 20;
+b = a;
+b += 4;
+console.log(a);
+console.log(b);
+// TODO примитивы выше передают данные
+const obj = {
+	a: 5,
+	b: 10,
+	c: 20,
+};
+const copyObj = obj; //TODO передается не сам обьект(данные обьекта, а просто ссылка на него
+copyObj.a = 20;
+console.log(obj);
+console.log(copyObj);
+// TODO обект obj изменился по ссылке
+
+// ? Создание поверхносной копии обекта (первый уровень вложенности (тоесть сложные объекты внутри будут также пеедаваться по ссылке)) при помощи цикла.
+const obj = {
+	a: 5,
+	b: 10,
+	c: 20,
+};
+
+function copy(mainObj) {
+	// TODO функция которая копирует и возвращает объект
+	let objCopy = {};
+
+	let key;
+	for (key in mainObj) {
+		objCopy[key] = mainObj[key];
+	}
+	return objCopy;
+}
+const newObj = copy(obj);
+newObj.a = 100;
+console.log(obj);
+console.log(newObj);
+
+const addToObj = {
+	d: 32,
+	e: 0,
+};
+console.log(Object.assign(obj, addToObj));
+// ? Добавление елементов к обьекту. Также создает независимую копию объекта
+console.log(Object.assign({}, obj));
+// ? Независимая поверхносная копия объекта obj
+
+// ? Создание поверхносной копии массива
+const arr = ['a', 'b', 'c'],
+		copyArr = arr.slice();
+copyArr[1] = 2;
+console.log(arr);
+console.log(copyArr);
+
+// ! Создание поверхносных копий (современных) при помощи Spread оператора ES6-ES9
+const nums = [1, 2, 3, 4],
+	words = ["vova", "pipka", "tr9s"],
+	numsWords = [...nums, ...words, "da", 2]; // ? разбивает массивы на значения и вставляет копию
+numsWords[2] = "asnhdjashd";
+console.log(numsWords);
+console.log(nums);
+// ? Копирование массива
+const copyMassive = [...numsWords];
+
+// ? копирование объекта
+const objN = {
+	d: 32,
+	e: 0,
+};
+const objNcopy = { ...objN };
+ */
