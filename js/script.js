@@ -71,12 +71,12 @@ answers[2] = prompt("Сколько вам лет?", "");
 
 console.log(typeof answers);
 
-// !Интерполяция (вставлять внутри строки значения переменных)
+// ! 008 Интерполяция (вставлять внутри строки значения переменных)
 const category = "toys";
 const url = "https://someurl.com/";
 console.log(`${url}${category}/5`); // !используем кавычки там, где буква ё
 
-// !Операторы в JS
+// ! 009 Операторы в JS
 // *Конкатинация - при помощи оператора сложения (унарный плюс) преобразование строк в числа, и чисел в строки
 console.log("someString" + " - object"); // *выйдет строка
 console.log(typeof (4 + "5")); // *выйдет строка
@@ -146,7 +146,7 @@ personalMovieDB.movies[filmName1] = filmRating1;
 personalMovieDB.movies[filmName2] = filmRating2;
 console.log(personalMovieDB);
  */
-// ! Условия
+// ! 013 Условия
 /* if (4 == 9) {
 	console.log("OK!");
 } else {
@@ -180,7 +180,7 @@ switch (num) {
 		console.log("fuck you!");
 		break;
 } */
-// ! Циклы
+// ! 014 Циклы
 /* let num = 50;
 
 while (num <= 55) {
@@ -280,7 +280,7 @@ for (let i = 0; i < 2; i++) {
 console.log(personalMovieDB);
 // ?конец
  */
-// ! Функции
+// ! 016 Функции, стрелочные функции
 /* // ? Function declaretion
 function showMessage(text) {
 	console.log(text);
@@ -322,7 +322,7 @@ function checkAge(age) {
 console.log(checkAge(19));
  */
 
-// ! Методы и свойства строк и чисел
+// ! 017 Методы и свойства строк и чисел
 /* const str = "testLul",
 	arr = [1, 2, 3];
 
@@ -453,7 +453,7 @@ while (i < 2) {
 }
 console.log(personalMovieDB); */
 
-// ! Callback функции
+// ! 019 Callback функции
 /* function iLern(lang, callback) {
 	console.log(`Я учу: ${lang}`);
 	callback();
@@ -462,8 +462,8 @@ function afterTimeout() {
 	console.log("After timeOut!");
 }
 iLern("JS", afterTimeout); */
-// ! C 020
-const options = {
+// ! 020 Объекты, деструктуризация объектов (ES6)
+/* const options = {
 	name: "test",
 	width: 1024,
 	height: 1024,
@@ -504,3 +504,44 @@ for (let key in options) {
 		console.log(`Свойство ${key} имеет значение ${options[key]}`);
 	}
 }
+ */
+// ! 021 Массивы и псевдомассивы
+
+const arr = [20, 10, 44, 32];
+arr.sort(compareNum);
+function compareNum(a, b) {
+	// TODO функция для сортировки цифр в массиве по порядку
+	return a - b;
+}
+console.log(arr);
+
+arr.forEach(function (item, i, arr) {
+	// TODO --вывод всех элементов массива (перебор) используем всегда (кроме когда нужно остановить в определенном месте (break) или пропустить итерацию (continiue) тогда используем FOR)
+	console.log(
+		`${i}-порядковый номер (реальный индекс),${item}-значение соответствующее этому порядковому номеру, ${arr}-собственно весь массив`
+	);
+});
+
+for (let value of arr) {
+	// TODO --вывод всех элементов массива (перебор) через for_of
+	console.log(value);
+}
+for (let i = 0; i < arr.length; i++) {
+	// TODO --вывод всех элементов массива (перебор) через обычный цикл
+	console.log(arr[i]);
+	console.log(`${i + 1}-й элемент массива равен: ${arr[i]}`);
+}
+arr.pop();
+// TODO --удаление последнего элемента массива
+arr.push(10);
+// TODO --добавление элемента в конец массива
+
+const str = "sahjkdkj, asdasdj, asdjaslkd, askdoaskd";
+const someShit = str.split(", ");
+someShit.sort();
+// TODO --сортерует по алфовиту
+console.log(someShit);
+// TODO --распиливает строку по ключу на отдельные элементы массива
+console.log(someShit);
+console.log(someShit.join("# "));
+// TODO --слепить элементы массива в строку через разделитель
