@@ -624,7 +624,7 @@ const objN = {
 const objNcopy = { ...objN };
  */
 // ! 023 Основы ООП, прототипно-ориентированное наследование
-
+/* 
 // ! Любые методы примененные даже к простым данным преобразовуют их в обект, выполняются методы и возвращается такой же простой тип данных
 
 let str = "some str",
@@ -641,10 +641,12 @@ const protoObj = {
 		console.log("Hello!");
 	},
 };
-const obj = {
-	height: 100,
-};
-//obj.__proto__ = protoObj; // ? старый способ установки прототипа объекта
-Object.setPrototypeOf(obj, protoObj); //? новый способ
+const obj = Object.create(protoObj); // ? создание объекта и присваивание ему прототипа
+// const obj = {
+// 	height: 100,
+// };
+// obj.__proto__ = protoObj; // ? старый способ установки прототипа объекта
+// Object.setPrototypeOf(obj, protoObj); //? новый способ
 console.log(obj.color);
 obj.seyHello();
+ */
