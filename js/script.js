@@ -631,3 +631,20 @@ let str = "some str",
 	strObj = new String(str); //? приминение метода стринг к строке сделало ее объектом
 console.log(typeof str);
 console.log(typeof strObj);
+
+const protoObj = {
+	width: 500,
+	height: 300,
+	backgroundColor: "#fff",
+	color: "black",
+	seyHello: function () {
+		console.log("Hello!");
+	},
+};
+const obj = {
+	height: 100,
+};
+//obj.__proto__ = protoObj; // ? старый способ установки прототипа объекта
+Object.setPrototypeOf(obj, protoObj); //? новый способ
+console.log(obj.color);
+obj.seyHello();
