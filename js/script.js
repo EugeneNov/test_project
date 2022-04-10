@@ -747,3 +747,50 @@ const personalMovieDB = {
 // personalMovieDB.toggleVisibleMyDB();
 // personalMovieDB.showMyDB();
  */
+
+// ! 026 Динамическая типизация в JS
+// ? to String
+
+// 1)
+console.log(typeof String(null));
+console.log(typeof String(4));
+// 2) конкатинация
+console.log(typeof (4 + ""));
+
+const num = 5;
+console.log("http://fb.com/catalog/" + num);
+
+const fontSize = 26 + "px";
+
+// ? to Number
+// 1)
+console.log(typeof Number("null"));
+console.log(Number("null"));
+
+// 2) унарный плюс
+console.log(typeof +"5");
+
+// 3)
+console.log(typeof parseInt("15px", 10));
+console.log(parseInt("15px", 10));
+
+// ? To boolean
+// * что всегда превращается в false:
+// *-- 0, '', null, undefind, NaN;
+// 1)
+let switcher = null;
+if (switcher) {
+	console.log("Not working....");
+}
+switcher = 1;
+if (switcher) {
+	console.log("Working....");
+}
+
+// 2)
+console.log(Boolean("null"));
+console.log(Boolean(null));
+
+// 3)
+console.log(Boolean(!!"null"));
+console.log(Boolean(!!null));
