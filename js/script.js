@@ -822,7 +822,6 @@ console.log(Boolean(!!null));
 // Есть ли разница между выражениями? !!( a && b ) и (a && b)?
 // нет
 
-3;
 // Что выведет этот код: alert( null || 2 && 3 || 4 ); ?
 // ? оператор ИЛИ (||) запинается на правде
 // 3
@@ -840,3 +839,23 @@ console.log(Boolean(!!null));
 
 // Чему равно 0 || "" || 2 || undefined || true || falsе ?
 // 2
+
+// ! 028 Получение элементов со страницы
+// ? Устаревшие
+const box = document.getElementById("box");
+console.log(box);
+
+const btns = document.getElementsByTagName("button");
+console.log(btns[1]);
+
+const circles = document.getElementsByClassName("circle");
+console.log(circles);
+
+// ? Новые
+const hearts = document.querySelectorAll(".heart");
+hearts.forEach((item) => {
+	console.log(item);
+});
+
+const oneHeart = document.querySelector(".wrapper");
+console.log(oneHeart);
