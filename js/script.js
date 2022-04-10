@@ -841,6 +841,7 @@ console.log(Boolean(!!null));
 // 2
 
 // ! 028 Получение элементов со страницы
+/* 
 // ? Устаревшие
 const box = document.getElementById("box");
 console.log(box);
@@ -859,3 +860,49 @@ hearts.forEach((item) => {
 
 const oneHeart = document.querySelector(".wrapper");
 console.log(oneHeart);
+ */
+
+// ! 029 Действия с элементами на странице
+/* 
+const box = document.getElementById("box"),
+	btns = document.getElementsByTagName("button"),
+	circles = document.getElementsByClassName("circle"),
+	wrapper = document.querySelector(".wrapper"),
+	hearts = wrapper.querySelectorAll(".heart"),
+	oneHeart = wrapper.querySelector(".heart");
+
+box.style.backgroundColor = "#0f0";
+box.style.width = "200px";
+
+box.style.cssText = "background-color: red; width: 500px";
+
+btns[1].style.borderRadius = "100%";
+
+for (let i = 0; i < hearts.length; i++) {
+	hearts[i].style.backgroundColor = "blue";
+}
+hearts.forEach((item) => {
+	item.style.backgroundColor = "#0f0";
+});
+
+const div = document.createElement("div"); //создание Дива в коде
+div.classList.add("black"); //добавление этому диву класса
+wrapper.prepend(div); //вставка дива в ДОМ (в начало враппера)
+wrapper.append(div); //вставка дива в ДОМ (в конец враппера)
+
+wrapper.insertBefore(div, hearts[1]); //устаревшая вставка что вставляем (див), и куда вставляем до 2го элемента сердца.
+
+hearts[1].before(div); //вставка до элемента
+hearts[0].after(div); //вставка после элемента
+
+circles[0].remove(); //del
+wrapper.removeChild(hearts[1]); //удаление старое
+
+hearts[1].replaceWith(circles[0]); //заменить один элемент другим
+wrapper.replaceChild(circles[0,hearts[0]]); //замена старая
+
+hearts[1].before(div);
+div.innerHTML = "<h1>Hellow world!</h1>";
+div.textContent = "Hellow!";
+div.insertAdjacentHTML('beforebegin','<h2>Hellow</h2>');
+ */
