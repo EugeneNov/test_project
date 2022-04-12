@@ -906,3 +906,54 @@ div.innerHTML = "<h1>Hellow world!</h1>";
 div.textContent = "Hellow!";
 div.insertAdjacentHTML('beforebegin','<h2>Hellow</h2>');
  */
+
+//! 031 События и их обработчики
+/* 
+const btn1 = document.querySelector(".btn1"),
+	btn2 = document.querySelector(".btn2"),
+	overlay = document.querySelector(".btn_wrapper"),
+	btn3 = overlay.querySelector(".btn3"),
+	btns = document.querySelectorAll("button");
+
+// btn1.onclick = () => {
+// 	alert("click");
+// };
+// btn1.addEventListener("click", () => {
+// 	console.log("click");
+// });
+
+// btn1.addEventListener("mouseenter", (event) => {
+// 	console.log(event.target);
+// 	// console.log("mausenter (hover)");
+// });
+
+// let i = 0;
+// const chengeColorElem = (e) => {
+// ? добавление и убирание обработчика после отработки
+// 	console.log(e.target);
+// 	i++;
+// 	if (i == 1) {
+// 		btn2.removeEventListener("click", chengeColorElem);
+// 	}
+// };
+// btn2.addEventListener("click", chengeColorElem);
+
+const nElemListeners = (e) => {
+	console.log(e.target);
+	console.log(e.currentTarget);
+	console.log(e.type);
+};
+btns.forEach((btn) => {
+	// ? обработчик на все кнопки
+	btn.addEventListener("click", nElemListeners, { once: true }); //? 3й параметр который передаем аддЭвентЛис это опция (once - выполнить один раз)
+});
+
+// btn3.addEventListener("click", nElemListeners);
+// overlay.addEventListener("click", nElemListeners);
+
+// const link = document.querySelector("a");
+// link.addEventListener("click", (e) => {
+// 	e.preventDefault();// ? отмена событий по умолчанию
+// 	console.log(e.target);
+// });
+ */

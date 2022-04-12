@@ -17,6 +17,15 @@ button {
 	cursor: pointer;
 	outline: none;
 }
+button:hover {
+	width: 90px;
+	height: 40px;
+}
+.btn_wrapper {
+	padding: 20px;
+	background-color: aqua;
+	display: inline-block;
+}
 
 .circle {
 	width: 80px;
