@@ -914,7 +914,7 @@ const btn1 = document.querySelector(".btn1"),
 	overlay = document.querySelector(".btn_wrapper"),
 	btn3 = overlay.querySelector(".btn3"),
 	btns = document.querySelectorAll("button");
-
+ */
 // btn1.onclick = () => {
 // 	alert("click");
 // };
@@ -938,16 +938,30 @@ const btn1 = document.querySelector(".btn1"),
 // };
 // btn2.addEventListener("click", chengeColorElem);
 
-const nElemListeners = (e) => {
-	console.log(e.target);
-	console.log(e.currentTarget);
-	console.log(e.type);
-};
-btns.forEach((btn) => {
-	// ? обработчик на все кнопки
-	btn.addEventListener("click", nElemListeners, { once: true }); //? 3й параметр который передаем аддЭвентЛис это опция (once - выполнить один раз)
-});
+// const nElemListeners = (e) => {
+// 	console.log(e.target);
+// 	console.log(e.currentTarget);
+// 	console.log(e.type);
+// };
+// btns.forEach((btn) => {
+// 	// ? обработчик на все кнопки
+// 	btn.addEventListener("click", nElemListeners, { once: true }); //? 3й параметр который передаем аддЭвентЛис это опция (once - выполнить один раз)
+// });
+// const btn = document.querySelector('button');
 
+/* 
+function random(number) {
+	//? возвращает рандомный цвет
+	return Math.floor(Math.random() * (number + 1));
+}
+
+const funcClick = function () {
+	const rndCol =
+		"rgb(" + random(255) + "," + random(255) + "," + random(255) + ")";
+	this.style.backgroundColor = rndCol;
+};
+btn2.addEventListener("click", funcClick);
+ */
 // btn3.addEventListener("click", nElemListeners);
 // overlay.addEventListener("click", nElemListeners);
 
@@ -956,7 +970,7 @@ btns.forEach((btn) => {
 // 	e.preventDefault();// ? отмена событий по умолчанию
 // 	console.log(e.target);
 // });
- */
+
 // ! 032 Навигация по DOM - элементам, data-атрибуты, преимущество for_of
 // console.log(document.head);
 // console.log(document.documentElement);
