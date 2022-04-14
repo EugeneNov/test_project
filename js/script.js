@@ -1024,3 +1024,19 @@ window.addEventListener("DOMContentLoaded", () => {
 // touches
 // targetTouches
 // chengedTouches
+
+// ! 035 Async, defer, динамические скрипты
+// В HTML: <script async src="/js/script.js"></script>
+// ? async -- загрузка паралельно со всем остальным, и выполнится как только будет готов, не ждет ДОМ, и другие скрипты
+
+// В HTML: <script defer src="/js/script.js"></script>
+// ? defer -- загрузка паралельно с ДОМ, но выполнится только после загрузки ДОМ, следующий скрипт с таким параметром, будет ждать загрузки этого скрипта прежде чем начнет сам загружаться
+
+function loadScript(src) {
+	const script = document.createElement("script");
+	script.src = src;
+	script.async = false; //по умолчанию true для динамически добавляемых на страницу скриптов
+	document.body.append(script);
+}
+
+// loadScript(какой-то путь к скрипту)
