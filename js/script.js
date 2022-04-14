@@ -1026,6 +1026,7 @@ window.addEventListener("DOMContentLoaded", () => {
 // chengedTouches
 
 // ! 035 Async, defer, динамические скрипты
+/* 
 // В HTML: <script async src="/js/script.js"></script>
 // ? async -- загрузка паралельно со всем остальным, и выполнится как только будет готов, не ждет ДОМ, и другие скрипты
 
@@ -1040,3 +1041,57 @@ function loadScript(src) {
 }
 
 // loadScript(какой-то путь к скрипту)
+ */
+
+// ! 037 ClassList и делегирование событий
+
+const btns = document.querySelectorAll(".first button"),
+	btnsWrapper = document.querySelector(".wrapper .first");
+
+// console.log(btns[0].classList.length); // кол-во классов у 1й кнопки
+// console.log(btns[0].classList.item(1)); // возвращает 2й класс по счету у элемента
+
+// console.log(btns[1].classList.add("green, sdad")); // добавить класс
+// console.log(btns[0].classList.remove("red")); // удалить класс
+// console.log(btns[2].classList.toggle("green")); // если есть удалить, если нет добавить
+/* 
+btns[0].addEventListener("click", () => {
+	// if (!btns[1].classList.contains("red")) {
+	// 	btns[1].classList.add("red");
+	// } else {
+	// 	btns[1].classList.remove("red");
+	// }
+
+	btns[1].classList.toggle("red");
+});
+ */
+
+btnsWrapper.addEventListener("click", (e) => {
+	// ? делегирование (передача) события клика от враппера кнопок, к самим кнопка по условию, что позволяет работать с динамически добавленным контентом
+
+	// console.dir(e.target);
+	// if (e.target && e.target.nodeName == "BUTTON") {
+	// 	// ? e.target --проверка существует ли (есть обьекты у которых нет таргета)
+	// 	// ? имя ноды выше в консоле дир проверили что такое свойство есть
+	// 	e.target.classList.toggle("green");
+	// } else {
+	// 	e.target.classList.toggle("red");
+	// }
+
+	// if (e.target && e.target.classList.contains("red")) {
+	// //? e.target --проверка существует ли (есть обьекты у которых нет таргета)
+	// //? содержит ли класс ред, наш таргет
+	// 	btns[2].classList.toggle("green");
+	// }
+
+	if (e.target && e.target.matches("button.red")) {
+		//? e.target --проверка существует ли (есть обьекты у которых нет таргета)
+		//? matches ('button.red') - проверка с селекторами
+		e.target.classList.toggle("green");
+	}
+});
+
+const newBtn = document.createElement("button");
+//? динамически добавляем еще 1 баттон
+newBtn.classList.add("red");
+btnsWrapper.append(newBtn);
