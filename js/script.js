@@ -13,50 +13,61 @@ obj.a = 10;
 
 console.log(obj);
 (function () {})();
-// ! Типы данных
-let number = 4.5; // Number
+*/
 
-console.log(-4 / 0); // -Infinity
-console.log("string" * 7); // NaN
+// !06 Типы данных
+//! ReferenceError - ошибка ссылочного типа (мы не можем сослаться на несуществующий объект). Это и есть null
 
-const string = "Vasya"; // String
+//* null - это когда чего-то не существует
+//* undefined - это когда чего-то существует но ему не присвоено значение
+//* Symbol - символы
+//* BigInt - большие числа (больше чем 2 в 53 степени)
 
-const booLean = false; // Boolean
+// let number = 4.5; //* Number
 
-console.log(undef); // null
+// console.log(-4 / 0); //* -Infinity - получаем при делении на 0
+// console.log("string" * 7); //* NaN (not a number) не число - не подлежит математической логики
 
-let jija;
-console.log(jija); // undefined
+// const string = "Vasya"; //* String
 
-const obj = {
-	name: "Vasya",
-	age: 24,
-	isMarrid: false,
-};
-console.log(obj.isMarrid);
-console.log(obj.name);
-console.log(obj["age"]);
+// const booLean = false; //* Boolean
 
-let arr = [23, "lol", {}, [23, "lol", {}, [], "dick"], "dick"];
-console.log(arr[2]);
+// console.log(undef); //* null - это когда чего-то не существует
 
-"" + 1 + 0 = "10" //
-"" - 1 + 0 = -1 //
-true + false = 1
-6 / "3" = 2
-"2" * "3" = 6
-4 + 5 + "px" = "9px"
-"$" + 4 + 5 = "$45"
-"4" - 2 = 2
-"4px" - 2 = NaN
-7 / 0 = Infinity
-"  -9  " + 5 = "  -9  5" //
-"  -9  " - 5 = -14 //
-null + 1 = 1 //
-undefined + 1 = NaN //
-" \t \n" - 2 = -2 //
+// let jija;
+// console.log(jija); //* undefined - существует но внутри пусто
+
+// const obj = {
+// 	name: "Vasya",
+// 	age: 24,
+// 	isMarrid: false,
+// };
+// console.log(obj.isMarrid);
+// console.log(obj.name);
+// console.log(obj["age"]);
+
+// let arr = [23, "lol", {}, [23, "lol", {}, [], "dick"], "dick"];
+// console.log(arr[2]);
+
+// "" + 1 + 0 = "10" //
+// "" - 1 + 0 = -1 //
+// true + false = 1
+// 6 / "3" = 2
+// "2" * "3" = 6
+// 4 + 5 + "px" = "9px"
+// "$" + 4 + 5 = "$45"
+// "4" - 2 = 2
+// "4px" - 2 = NaN
+// 7 / 0 = Infinity
+// "  -9  " + 5 = "  -9  5" //
+// "  -9  " - 5 = -14 //
+// null + 1 = 1 //
+// undefined + 1 = NaN //
+// " \t \n" - 2 = -2 //
+
 
 // !Взаимодействие с пользователем
+/*
 alert("Hi Nigga!");
 const rezQues = confirm("Ты чмо?");
 console.log(rezQues);
@@ -69,15 +80,17 @@ answers[0] = prompt("Ваше имя?", "");
 answers[1] = prompt("Ваша фамилия?", "");
 answers[2] = prompt("Сколько вам лет?", "");
 
-console.log(typeof answers);
+console.log(typeof(answers));
+*/
 
 // ! 008 Интерполяция (вставлять внутри строки значения переменных)
+/*
 const category = "toys";
 const url = "https://someurl.com/";
 console.log(`${url}${category}/5`); // !используем кавычки там, где буква ё
 
 // ! 009 Операторы в JS
-// *Конкатинация - при помощи оператора сложения (унарный плюс) преобразование строк в числа, и чисел в строки
+//* Конкатинация - при помощи оператора сложения (унарный плюс) преобразование строк в числа, и чисел в строки
 console.log("someString" + " - object"); // *выйдет строка
 console.log(typeof (4 + "5")); // *выйдет строка
 console.log(typeof (4 + +"5")); // *выйдет число
@@ -87,21 +100,25 @@ let incr = 10,
 	decr = 10;
 // ++incr;
 // decr--;
-console.log(incr++); //выводит значение потом увеличивает
-console.log(--decr); //уменьшает потом выводит измененное значение
-console.log(2 * 5 == "10"); // true сравнение не строгое (не сравниваются типы данных)
-console.log(2 * 5 === "10"); // false сравнение строгое
-// * = - присваивание
-// * == - сравнение только знчений без учета типа данных
-// * === - строгое сравнение знчений с учетом типа данных
-// * && - И - если все правда возвращает правду
-// * || - ИЛИ - хотябы 1 правда возвращает правду
-// * ! - Отрицание - меняет на противоположное
-// * != - Отрицание - меняет на противоположное
+console.log(incr++); // *выводит значение потом увеличивает
+console.log(--decr); // *уменьшает потом выводит измененное значение
+console.log(2 * 5 == "10"); // *true сравнение не строгое (не сравниваются типы данных)
+console.log(2 * 5 === "10"); // *false сравнение строгое
+console.log(5%2); // *возвращает остаток от деления
+//* + - унарный плюс (преобразование в число, если это возможно)
+//* % - возвращает остаток от деления
+//* = - присваивание
+//* == - сравнение только знчений без учета типа данных
+//* === - строгое сравнение знчений с учетом типа данных
+//* && - И - если все правда возвращает правду
+//* || - ИЛИ - хотябы 1 правда возвращает правду
+//* ! - Отрицание - меняет на противоположное
+//* != - Не равно
 const isCheked = false,
 	isClose = true;
 console.log(isCheked || !isClose);
  */
+
 //!Практика 012
 /* Задание на урок:
 
@@ -1044,7 +1061,7 @@ function loadScript(src) {
  */
 
 // ! 037 ClassList и делегирование событий
-
+/* 
 const btns = document.querySelectorAll(".first button"),
 	btnsWrapper = document.querySelector(".wrapper .first");
 
@@ -1054,17 +1071,16 @@ const btns = document.querySelectorAll(".first button"),
 // console.log(btns[1].classList.add("green, sdad")); // добавить класс
 // console.log(btns[0].classList.remove("red")); // удалить класс
 // console.log(btns[2].classList.toggle("green")); // если есть удалить, если нет добавить
-/* 
-btns[0].addEventListener("click", () => {
-	// if (!btns[1].classList.contains("red")) {
-	// 	btns[1].classList.add("red");
-	// } else {
-	// 	btns[1].classList.remove("red");
-	// }
 
-	btns[1].classList.toggle("red");
-});
- */
+// btns[0].addEventListener("click", () => {
+// 	// if (!btns[1].classList.contains("red")) {
+// 	// 	btns[1].classList.add("red");
+// 	// } else {
+// 	// 	btns[1].classList.remove("red");
+// 	// }
+
+// 	btns[1].classList.toggle("red");
+// });
 
 btnsWrapper.addEventListener("click", (e) => {
 	// ? делегирование (передача) события клика от враппера кнопок, к самим кнопка по условию, что позволяет работать с динамически добавленным контентом
@@ -1095,3 +1111,4 @@ const newBtn = document.createElement("button");
 //? динамически добавляем еще 1 баттон
 newBtn.classList.add("red");
 btnsWrapper.append(newBtn);
+ */
