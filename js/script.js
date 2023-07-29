@@ -483,36 +483,45 @@ console.log(personalMovieDB);
 // console.log(pow(3,3))
 // console.log(pow(1,100))
 
-function pow(x, n) {
-	x = +prompt("Введите x");
-	n = +prompt("Введите n");
-	if (x != null && x != "" && !isNaN(x) && n != null && n != "" && !isNaN(n)) { //? Проверка введенного значения преобразованного в число: если не нажали отмену, если не ввели ничего, и если не ввели не число то выполняется действие
-		console.log(x ** n);
-	} else {
-		console.log("Степень не поддерживается");
-	}
-}
-pow();
+// function pow(x, n) {
+// 	x = +prompt("Введите x");
+// 	n = +prompt("Введите n");
+// 	if (x != null && x != "" && !isNaN(x) && n != null && n != "" && !isNaN(n)) { //? Проверка введенного значения преобразованного в число: если не нажали отмену, если не ввели ничего, и если не ввели не число то выполняется действие
+// 		console.log(x ** n);
+// 	} else {
+// 		console.log("Степень не поддерживается");
+// 	}
+// }
+// pow();
+
 // ! 017 Методы и свойства строк и чисел
-/* const str = "testLul",
-	arr = [1, 2, 3];
+//? Методы для строк
+// let str = "tEstLul",
+// 	arr = [1, 2, 3];
 
-console.log(arr.length);
-const someText =
-		"Далеко-далеко за словесными, горами в стране гласных и согласных живут рыбные тексты. Языкового грустный ipsum дорогу необходимыми одна. Великий не семантика, предложения журчит ты проектах выйти свою возвращайся злых заголовок подзаголовок что?",
-	slicedText = someText.indexOf("рыбные");
+// console.log(str.toUpperCase()); //* Все заглавные
+// console.log(str.toLowerCase()); //* Все заглавные
+// console.log(arr.length); //* Длинна строки
+// console.dir(Number); //* все свойства и методы у числа
 
-console.log(someText.slice(slicedText, -1));
-console.log(someText.substring(slicedText, slicedText + 6));
-console.log(someText.substr(slicedText, slicedText + 6));
+// const someText =
+// 		"Далеко-далеко за словесными, горами в стране гласных и согласных живут рыбные тексты. Языкового грустный ipsum дорогу необходимыми одна. Великий не семантика, предложения журчит ты проектах выйти свою возвращайся злых заголовок подзаголовок что?",
+// 	slicedText = someText.indexOf("далеко"); //? с какого символа в строке по порядку начинается соответствие
 
-const num = 15.5;
-console.log(Math.round(num));
+// console.log(slicedText); //* соответствие с 8 символа, но выдает индекс предыдущего символа
+// console.log(someText.slice(slicedText)); //* вырезаем весь текст первый аргумент откуда и второй аргумент до куда (-1 до конца) !Важно не включая последний по номеру, тоесть нужно указывать следующий индекс после последнего нужного
+// console.log(someText.substring(slicedText, slicedText + 7)); //* тоже самое но не поддерживает отрицательные значения
+// console.log(someText.substr(slicedText, 6)); //* первый аргумент с какого символа вырезаем, второй аргумент сколько символов после этого вырезаем
 
-const numQ = "15.9px";
-console.log(parseInt(numQ));
-console.log(parseFloat(numQ));
-console.log(Math.round(parseFloat(numQ))); */
+//? Методы для чисел
+// const num = 15.5;
+// console.log(Math.round(num)); //* Округление к ближайшему целому
+
+// const numQ = "15.9px";
+// console.log(parseInt(numQ)); //* Переводит число в другую систему исчесления и приводит к целому значения после точки отбрасываются без округления (на выходе получается числовой тип данных)
+// console.log(parseFloat(numQ)); //*Переводит число в другую систему исчесления и приводит к значению с плавающей точкой (на выходе получается числовой тип данных)
+// console.log(Math.round(parseFloat(numQ))); 
+
 //!Практика 018
 /* Задание на урок:
 
@@ -627,14 +636,18 @@ while (i < 2) {
 console.log(personalMovieDB); */
 
 // ! 019 Callback функции
-/* function iLern(lang, callback) {
+//? Если функции идут в коде одна за другой это не значит что так же они и отработают
+function iLern(lang, callback) {
 	console.log(`Я учу: ${lang}`);
 	callback();
 }
 function afterTimeout() {
-	console.log("After timeOut!");
+	setTimeout(function () {
+		console.log("Строго после выполнить!");
+	}, 500);
 }
-iLern("JS", afterTimeout); */
+iLern("JS", afterTimeout); 
+
 // ! 020 Объекты, деструктуризация объектов (ES6)
 /* const options = {
 	name: "test",
