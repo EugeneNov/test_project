@@ -637,16 +637,16 @@ console.log(personalMovieDB); */
 
 // ! 019 Callback функции
 //? Если функции идут в коде одна за другой это не значит что так же они и отработают
-function iLern(lang, callback) {
-	console.log(`Я учу: ${lang}`);
-	callback();
-}
-function afterTimeout() {
-	setTimeout(function () {
-		console.log("Строго после выполнить!");
-	}, 500);
-}
-iLern("JS", afterTimeout); 
+// function iLern(lang, callback) {
+// 	console.log(`Я учу: ${lang}`);
+// 	callback();
+// }
+// function afterTimeout() {
+// 	setTimeout(function () {
+// 		console.log("Строго после выполнить!");
+// 	}, 500);
+// }
+// iLern("JS", afterTimeout); 
 
 // ! 020 Объекты, деструктуризация объектов (ES6)
 /* const options = {
