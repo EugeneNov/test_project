@@ -637,205 +637,253 @@ console.log(personalMovieDB); */
 
 // ! 019 Callback функции
 //? Если функции идут в коде одна за другой это не значит что так же они и отработают
-// function iLern(lang, callback) {
+//todo Пример неправельного порядка выполнения функций
+// function firstFunc(){
+// 	setTimeout(function(){
+// 		console.log("Выполнена функция 1");
+// 	}, 1000);
+// }
+// function secondFunc() {
+// 	console.log("Выполнена функция 2");
+// }
+// firstFunc();
+// secondFunc();
+
+//todo Пример правильного порядка порядка выполнения функций при помощи калбека
+// function iLern(lang, callback) { //*callback - стандарт для вызова колбек функций
 // 	console.log(`Я учу: ${lang}`);
-// 	callback();
+// 	callback(); //* если поставить коблек функцию перед каким либо кодом, то сначала выполниться она а уж потом код
 // }
 // function afterTimeout() {
 // 	setTimeout(function () {
 // 		console.log("Строго после выполнить!");
 // 	}, 500);
 // }
-// iLern("JS", afterTimeout); 
+// iLern("JS", afterTimeout); //todo ВАЖНО! передаем код вункции но не вызываем ее, тоесть без "()"
 
 // ! 020 Объекты, деструктуризация объектов (ES6)
-/* const options = {
-	name: "test",
-	width: 1024,
-	height: 1024,
-	colors: {
-		border: "black",
-		bg: "red",
-	},
-	makeTest: function () {
-		// TODO Это метод, тоесть функция внутри обьекта
-		console.log("Test");
-	},
-};
-options.makeTest();
-// TODO Деструктуризация объектов (вытащить данные обьекта в переменные)
-const { border, bg } = options.colors; // TODO создали 2 переменные из объекта colors
-console.log(border);
-console.log(bg);
 
-console.log(Object.keys(options).length);
-// TODO Object.keys(название объекта) --выдает массив со всеми свойствами объекта.
-// TODO .length --колличество ключей
+// const options = { //todo если ключи числовые они будут идти в порядке от меньшего числа к большему, если буквенные, то в порядке как они заданы в объекте
+	//* создаем новый объект options
+// 	name: "test", //* ключ : значение, или свойство : значение
+// 	width: 1024,
+// 	height: 1024,
+// 	colors: { //* создаем новый объект colors внутри объекта options
+// 		border: "black",
+// 		bg: "red",
+// 		nice: {
+// 			very: true,
+// 			bed: false,
+// 		},
+// 	},
+// 	makeTest: function () {//* Это метод, тоесть функция внутри обьекта
+// 		console.log("Test");
+// 	},
+// };
+// options.makeTest();//todo вызов метода объекта
+// const {border: br, bg, nice, color="blue"} = options.colors; //TODO !деструктуризация объекта! создали 4 переменные из объекта colors (border переименовали в br, и добавили новую переменную color="blue")
+// console.log(br);
+// console.log(bg);
+// console.log(nice);
+// console.log(color);
 
-console.log(options.colors.bg);
-console.log(options["colors"]["bg"]);
-delete options.name; // TODO Удалить свойство объекта
-console.log(options);
+// console.log(Object.keys(options)); //* Object.keys(название объекта) --выдает массив со всеми свойствами объекта.
+// console.log(Object.keys(options).length);//* Object.keys(название объекта) --выдает массив со всеми свойствами объекта. (.length --колличество ключей на верхнем уровне тоесть на первом уровне вложенности)
 
-for (let key in options) {
-	// TODO перебор свойств обьекта
-	if (typeof options[key] === "object") {
-		// TODO свойство которое тоже обьект
-		for (let i in options[key]) {
-			// TODO перебор его значений
-			console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
-		}
-	} else {
-		// TODO перебор обычных свойств
-		console.log(`Свойство ${key} имеет значение ${options[key]}`);
-	}
-}
- */
+// console.log(options.colors.bg); //* Это и нижнее одно и тоже вывод значение свойства bg для объекта colors, который внутри объекта options
+// console.log(options["colors"]["bg"]);
+
+// delete options.name; //todo Удалить свойство объекта
+// console.log(options);
+
+//let counter = 0; //todo создаем счетчик колличества элементов в объекте
+// for (let key in options) { //? перевбор ключей объекта
+// 	//todo перебор свойств обьекта
+// 	if (typeof options[key] === "object") {
+// 		//* свойство которое тоже обьект
+// 		for (let i in options[key]) {
+// 			//* перебор его значений
+// 			console.log(`Свойство ${i} имеет значение ${options[key][i]}`);
+// 			//counter++; //todo Увеличиваем значение счетчика на 1
+// 		}
+// 	} else {
+// 		//* перебор обычных свойств
+// 		console.log(`Свойство ${key} имеет значение ${options[key]}`);
+// 		//counter++; //todo Увеличиваем значение счетчика на 1
+// 	}
+// 	console.log(counter); //todo не подсчитает обект в объекте!
+// }
+
+//? Еще пример деструктуризации
+// let optIons = {
+//   size: {
+//     width: 100,
+//     height: 200
+//   },
+//   items: ["Пончик", "Пирожное"]
+// }
+
+// let { title="Меню", size: {width, height}, items: [item1, item2] } = optIons; //todo Деструктуризация
+
+//* Меню 100 200 Пончик Пирожное
+// console.log(title);  // Меню
+// console.log(width);  // 100
+// console.log(height); // 200
+// console.log(item1);  // Пончик
+// console.log(item2);  // Пирожное
+
 // ! 021 Массивы и псевдомассивы
-/* 
-const arr = [20, 10, 44, 32];
-arr.sort(compareNum);
-function compareNum(a, b) {
-	// TODO функция для сортировки цифр в массиве по порядку
-	return a - b;
-}
-console.log(arr);
+//! Псевдомассивы выглядят как обыкнавенные массивы, но при этом не имеют никаких методов 
 
-arr.forEach(function (item, i, arr) {
-	// TODO --вывод всех элементов массива (перебор) используем всегда (кроме когда нужно остановить в определенном месте (break) или пропустить итерацию (continiue) тогда используем FOR)
-	console.log(
-		`${i}-порядковый номер (реальный индекс),${item}-значение соответствующее этому порядковому номеру, ${arr}-собственно весь массив`
-	);
-});
+// const arr = [20, 10, 44, 32];
+// arr.pop(); //* --удаление последнего элемента массива
+// arr.push(10); //* --добавление элемента в конец массива
+// console.log(arr);
 
-for (let value of arr) {
-	// TODO --вывод всех элементов массива (перебор) через for_of
-	console.log(value);
-}
-for (let i = 0; i < arr.length; i++) {
-	// TODO --вывод всех элементов массива (перебор) через обычный цикл
-	console.log(arr[i]);
-	console.log(`${i + 1}-й элемент массива равен: ${arr[i]}`);
-}
-arr.pop();
-// TODO --удаление последнего элемента массива
-arr.push(10);
-// TODO --добавление элемента в конец массива
+//todo !Функция для сортировки цифр в массиве по порядку
+// arr.sort(compareNum);
+// function compareNum(a, b) { 
+// 	return a - b;
+// }
+// console.log(arr);
 
-const str = "sahjkdkj, asdasdj, asdjaslkd, askdoaskd";
-const someShit = str.split(", ");
-someShit.sort();
-// TODO --сортерует по алфовиту
-console.log(someShit);
-// TODO --распиливает строку по ключу на отдельные элементы массива
-console.log(someShit);
-console.log(someShit.join("# "));
-// TODO --слепить элементы массива в строку через разделитель
- */
+//todo 3 варианта перебора массива
+//todo 1 вариант ОСНОВА (forEach())  --вывод всех элементов массива (перебор) используем всегда (кроме когда нужно остановить в определенном месте (break) или пропустить итерацию (continiue) тогда используем FOR OFF)
+// arr.forEach(function (item, i, arr) { 
+// 	console.log(
+// 		`${i}-порядковый номер (реальный индекс),${item}-значение соответствующее этому порядковому номеру, ${arr}-собственно весь массив`
+// 	);
+// });
+
+//todo 2 вариант ОСНОВА (for of)
+// for (let value of arr) { //* --вывод всех элементов массива (перебор) через for_of
+// 	console.log(value);
+// }
+
+//todo 3 вариант ОСНОВА (for)
+// for (let i = 0; i < arr.length; i++) { //* --вывод всех элементов массива (перебор) через обычный цикл
+// 	console.log(arr[i]);
+// 	console.log(`${i + 1}-й элемент массива равен: ${arr[i]}`);
+// }
+
+// const str = "sahjkdkj, asdasdj, asdjaslkd, askdoaskd";
+// for (let value of str) { //* --вывод всех элементов массива (перебор) посимвольно через for_of
+// 	console.log(value);
+// }
+// const someShit = str.split(", "); //* преобразует строку в массив в ковычках указываем разделитель
+// console.log(someShit);
+// someShit.sort(); //* --сортерует по алфовиту (сортерует как строки, поэтому числа он приводит к строкам и сортерует (22 будет раньше чем 3))
+// console.log(someShit);
+// console.log(someShit.join("# ")); //* --слепить элементы массива в строку через разделитель
+
 // ! 022 Передача по ссылке или по значению, Spread оператор (ES6-ES9)
 
 // ! передача по значению работает только для примитивных типов данных (числа, строки, булевые данные), при работе с объектами передача по ссылке
-/* 
-let a = 10,
-	b = 20;
-b = a;
-b += 4;
-console.log(a);
-console.log(b);
-// TODO примитивы выше передают данные
-const obj = {
-	a: 5,
-	b: 10,
-	c: 20,
-};
-const copyObj = obj; //TODO передается не сам обьект(данные обьекта, а просто ссылка на него
-copyObj.a = 20;
-console.log(obj);
-console.log(copyObj);
-// TODO обект obj изменился по ссылке
+// let a = 10,
+// 	b = 20;
+// b = a;
+// b += 4;
+// console.log(a);
+// console.log(b);// TODO примитивы выше передают данные
+
+// const obj = {
+// 	a: 5,
+// 	b: 10,
+// 	c: 20,
+// };
+// const copyObj = obj; //TODO передается не сам обьект(данные) обьекта, а просто ссылка на него
+// copyObj.a = 20;
+// console.log(obj);
+// console.log(copyObj);// TODO обект obj изменился по ссылке
 
 // ? Создание поверхносной копии обекта (первый уровень вложенности (тоесть сложные объекты внутри будут также пеедаваться по ссылке)) при помощи цикла.
-const obj = {
-	a: 5,
-	b: 10,
-	c: 20,
-};
+// const obj2 = {
+// 	a: 5,
+// 	b: 10,
+// 	c: {
+// 		x: "bz",
+// 		t: {
+// 			zz: "bb"
+// 		}
+// 	}
+// };
 
-function copy(mainObj) {
-	// TODO функция которая копирует и возвращает объект
-	let objCopy = {};
+// function copy(mainObj) {
+// TODO функция которая копирует и возвращает объект !!создает поверхносную копию объекта, все внутренние объекты или массивы передаются по ссылке
+// 	let objCopy = {};
 
-	let key;
-	for (key in mainObj) {
-		objCopy[key] = mainObj[key];
-	}
-	return objCopy;
-}
-const newObj = copy(obj);
-newObj.a = 100;
-console.log(obj);
-console.log(newObj);
+// 	let key;
+// 	for (key in mainObj) {
+// 		objCopy[key] = mainObj[key];
+// 	}
+// 	return objCopy;
+// }
+// const newObj = copy(obj2);
+// newObj.a = 100;
+// console.log(obj2);
+// console.log(newObj);
 
-const addToObj = {
-	d: 32,
-	e: 0,
-};
-console.log(Object.assign(obj, addToObj));
-// ? Добавление елементов к обьекту. Также создает независимую копию объекта
-console.log(Object.assign({}, obj));
-// ? Независимая поверхносная копия объекта obj
+// const addToObj = {
+// 	d: 32,
+// 	e: 0
+// };
+// console.log(Object.assign(obj2, addToObj));// ? Добавление елементов к обьекту. Также создает независимую копию объекта
+// console.log(Object.assign({}, obj2));// ? Независимая поверхносная копия объекта obj2
 
 // ? Создание поверхносной копии массива
-const arr = ['a', 'b', 'c'],
-		copyArr = arr.slice();
-copyArr[1] = 2;
-console.log(arr);
-console.log(copyArr);
+// const arr = ['a', 'b', 'c'],
+// 		copyArr = arr.slice();
+// copyArr[1] = 2;
+// console.log(arr);
+// console.log(copyArr);
 
 // ! Создание поверхносных копий (современных) при помощи Spread оператора ES6-ES9
-const nums = [1, 2, 3, 4],
-	words = ["vova", "pipka", "tr9s"],
-	numsWords = [...nums, ...words, "da", 2]; // ? разбивает массивы на значения и вставляет копию
-numsWords[2] = "asnhdjashd";
-console.log(numsWords);
-console.log(nums);
+// const nums = [1, 2, 3, 4],
+// 	words = ["vova", "pipka", "tr9s"],
+// 	numsWords = [...nums, ...words, "da", 2]; // ? разбивает массивы на значения и вставляет копию
+// numsWords[2] = "asnhdjashd";
+// console.log(numsWords);
+// console.log(nums);
 // ? Копирование массива
-const copyMassive = [...numsWords];
+// const copyMassive = [...numsWords];
 
 // ? копирование объекта
-const objN = {
-	d: 32,
-	e: 0,
-};
-const objNcopy = { ...objN };
- */
+// const objN = {
+// 	d: 32,
+// 	e: 0
+// };
+// const objNcopy = { ...objN };
+// objNcopy.e = "lol";
+// console.log(objN);
+// console.log(objNcopy);
+
 // ! 023 Основы ООП, прототипно-ориентированное наследование
-/* 
 // ! Любые методы примененные даже к простым данным преобразовуют их в обект, выполняются методы и возвращается такой же простой тип данных
+// console.dir([1, 2, 3]); //* В браузере цепочка наследования от null__proto__Object.prototype__proto__Array.prototype__proto__[1, 2, 3] по сути является экземпляром прототипа Array.prototype, который в свою очередь является экземпляром объекта Array.prototype
 
-let str = "some str",
-	strObj = new String(str); //? приминение метода стринг к строке сделало ее объектом
-console.log(typeof str);
-console.log(typeof strObj);
+// let str = "some str",
+// 	strObj = new String(str); //? приминение метода стринг к строке сделало ее объектом
+// console.log(typeof(str));
+// console.log(typeof(strObj));
 
-const protoObj = {
-	width: 500,
-	height: 300,
-	backgroundColor: "#fff",
-	color: "black",
-	seyHello: function () {
-		console.log("Hello!");
-	},
-};
-const obj = Object.create(protoObj); // ? создание объекта и присваивание ему прототипа
+// const protoObj = {
+// 	width: 500,
+// 	height: 300,
+// 	backgroundColor: "#fff",
+// 	color: "black",
+// 	seyHello: function () {
+// 		console.log("Hello!");
+// 	}
+// };
 // const obj = {
 // 	height: 100,
 // };
 // obj.__proto__ = protoObj; // ? старый способ установки прототипа объекта
 // Object.setPrototypeOf(obj, protoObj); //? новый способ
-console.log(obj.color);
-obj.seyHello();
- */
+// const obj = Object.create(protoObj); // ? создание объекта и присваивание ему прототипа
+// console.log(obj.color);
+// obj.seyHello();
+
 
 // ! 024 Практика (Объекты и методы)
 /* Задание на урок:
@@ -882,8 +930,7 @@ const personalMovieDB = {
 				);
 			}
 		}
-		personalMovieDB.genres.forEach(function (item, i) {
-			// TODO --вывод всех элементов массива (перебор) используем всегда (кроме когда нужно остановить в определенном месте (break) или пропустить итерацию (continiue) тогда используем FOR)
+		personalMovieDB.genres.forEach(function (item, i) {// TODO --вывод всех элементов массива (перебор) используем всегда (кроме когда нужно остановить в определенном месте (break) или пропустить итерацию (continiue) тогда используем FOR)
 			console.log(`Любимый жанр #${i + 1} - это ${item}`);
 		});
 	},
@@ -917,19 +964,18 @@ const personalMovieDB = {
 			personalMovieDB.privat = true;
 		}
 	},
-	showMyDB: function () {
-		// ?personalMovieDB.privat = confirm("Сделать вашу базу данны приватной?");
+	showMyDB: function () {// ?personalMovieDB.privat = confirm("Сделать вашу базу данны приватной?");
 		if (!personalMovieDB.privat) {
 			console.log(personalMovieDB);
 		}
 	},
 };
-// personalMovieDB.start();
-// personalMovieDB.detectPersonalLevel();
-// personalMovieDB.writeYourGenres();
-// personalMovieDB.rememberMyFilms();
-// personalMovieDB.toggleVisibleMyDB();
-// personalMovieDB.showMyDB();
+//* personalMovieDB.start();
+//* personalMovieDB.detectPersonalLevel();
+//* personalMovieDB.writeYourGenres();
+//* personalMovieDB.rememberMyFilms();
+//* personalMovieDB.toggleVisibleMyDB();
+//* personalMovieDB.showMyDB();
  */
 
 // ! 026 Динамическая типизация в JS
