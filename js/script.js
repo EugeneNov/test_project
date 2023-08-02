@@ -899,118 +899,117 @@ console.log(personalMovieDB); */
 Если он это сделал - возвращать его к этому же вопросу. После того, как все жанры введены - 
 при помощи метода forEach вывести в консоль сообщения в таком виде:
 "Любимый жанр #(номер по порядку, начиная с 1) - это (название из массива)"*/
-/* 
-const personalMovieDB = {
-	count: 0,
-	movies: {},
-	actors: {},
-	genres: [],
-	privat: false,
-	start: function () {
-		personalMovieDB.count = +prompt("Сколько фильмов вы уже посмотрели", "");
-		while (!personalMovieDB.count) {
-			personalMovieDB.count = +prompt(
-				"Сколько фильмов вы уже посмотрели",
-				""
-			);
-		}
-	},
-	writeYourGenres: function () {
-		for (let i = 0; i < 3; i++) {
-			let personalGenres = prompt(
-				`Ваш любимый жанр под номером ${i + 1}`,
-				""
-			);
-			if (!personalGenres) {
-				i--;
-			} else {
-				personalMovieDB.genres[i] = personalGenres;
-				console.log(
-					`Ваш любимый жанр под номером ${i + 1}: ${personalGenres}`
-				);
-			}
-		}
-		personalMovieDB.genres.forEach(function (item, i) {// TODO --вывод всех элементов массива (перебор) используем всегда (кроме когда нужно остановить в определенном месте (break) или пропустить итерацию (continiue) тогда используем FOR)
-			console.log(`Любимый жанр #${i + 1} - это ${item}`);
-		});
-	},
-	rememberMyFilms: function () {
-		for (let i = 0; i < 2; i++) {
-			let filmName = prompt("Один из последних просмотренных фильмов?", ""),
-				filmRating = +prompt("На сколько оцените его?", "");
-			if (!filmName || !filmRating || filmName.length > 50) {
-				console.log("Введите данные");
-				i--;
-				continue;
-			}
-			personalMovieDB.movies[filmName] = filmRating;
-		}
-	},
-	detectPersonalLevel: function () {
-		if (personalMovieDB.count < 10) {
-			console.log("Просмотрено довольно мало фильмов");
-		} else if (personalMovieDB.count <= 30) {
-			console.log("Вы классический зритель");
-		} else if (personalMovieDB.count > 30) {
-			console.log("Вы киноман");
-		} else {
-			console.log("Произошла ошибка");
-		}
-	},
-	toggleVisibleMyDB: function () {
-		if (personalMovieDB.privat) {
-			personalMovieDB.privat = false;
-		} else {
-			personalMovieDB.privat = true;
-		}
-	},
-	showMyDB: function () {// ?personalMovieDB.privat = confirm("Сделать вашу базу данны приватной?");
-		if (!personalMovieDB.privat) {
-			console.log(personalMovieDB);
-		}
-	},
-};
-//* personalMovieDB.start();
-//* personalMovieDB.detectPersonalLevel();
-//* personalMovieDB.writeYourGenres();
-//* personalMovieDB.rememberMyFilms();
-//* personalMovieDB.toggleVisibleMyDB();
-//* personalMovieDB.showMyDB();
- */
+
+// const personalMovieDB = {
+// 	count: 0,
+// 	movies: {},
+// 	actors: {},
+// 	genres: [],
+// 	privat: false,
+// 	start: function () {
+// 		personalMovieDB.count = +prompt("Сколько фильмов вы уже посмотрели", "");
+// 		while (!personalMovieDB.count) {
+// 			personalMovieDB.count = +prompt(
+// 				"Сколько фильмов вы уже посмотрели",
+// 				""
+// 			);
+// 		}
+// 	},
+// 	writeYourGenres: function () {
+// 		for (let i = 0; i < 3; i++) {
+// 			let personalGenres = prompt(`Ваш любимый жанр под номером ${i + 1}`,"");
+
+// 			if (!personalGenres) {
+// 				console.log("Вы ввели неверные данные!")
+// 				i--;
+// 			} else {
+// 				personalMovieDB.genres[i] = personalGenres;
+// 			}
+// 		};
+// 		personalMovieDB.genres.forEach(function (item, i) {// TODO --вывод всех элементов массива (перебор) используем всегда (кроме когда нужно остановить в определенном месте (break) или пропустить итерацию (continiue) тогда используем FOR)
+// 			console.log(`Любимый жанр #${i + 1} - это ${item}`);
+// 		});
+// 	},
+// 	rememberMyFilms: function () {
+// 		for (let i = 0; i < 2; i++) {
+// 			let filmName = prompt("Один из последних просмотренных фильмов?", ""),
+// 				filmRating = +prompt("На сколько оцените его?", "");
+// 			if (!filmName || !filmRating || filmName.length > 50) {
+// 				console.log("Введите данные");
+// 				i--;
+// 				continue;
+// 			}
+// 			personalMovieDB.movies[filmName] = filmRating;
+// 		}
+// 	},
+// 	detectPersonalLevel: function () {
+// 		if (personalMovieDB.count < 10) {
+// 			console.log("Просмотрено довольно мало фильмов");
+// 		} else if (personalMovieDB.count <= 30) {
+// 			console.log("Вы классический зритель");
+// 		} else if (personalMovieDB.count > 30) {
+// 			console.log("Вы киноман");
+// 		} else {
+// 			console.log("Произошла ошибка");
+// 		}
+// 	},
+// 	toggleVisibleMyDB: function () {
+// 		if (personalMovieDB.privat) {
+// 			personalMovieDB.privat = false;
+// 		} else {
+// 			personalMovieDB.privat = true;
+// 		}
+// 	},
+// 	showMyDB: function () {// ?personalMovieDB.privat = confirm("Сделать вашу базу данны приватной?");
+// 		if (!personalMovieDB.privat) {
+// 			console.log(personalMovieDB);
+// 		}
+// 	},
+// };
+// personalMovieDB.start();
+// personalMovieDB.detectPersonalLevel();
+// personalMovieDB.writeYourGenres();
+// personalMovieDB.rememberMyFilms();
+// personalMovieDB.toggleVisibleMyDB();
+// personalMovieDB.showMyDB();
+
+// ! 025 Отлавливаем ошибки в своем коде при помощи консоли разработчика. Breakpoints
+// debugger; // *создание брейкпоинта в любом месте кода
 
 // ! 026 Динамическая типизация в JS
-/* 
+// ! Динамическая типизация это возможность одного типа данных превращаться в другой
+/*
 // ? to String
-
-// 1)
+//* 1)
 console.log(typeof String(null));
 console.log(typeof String(4));
-// 2) конкатинация
+//* 2) конкатинация
 console.log(typeof (4 + ""));
 
 const num = 5;
-console.log("http://fb.com/catalog/" + num);
+console.log("http://fb.com/catalog/" + num); //* устаревшее
+console.log(`http://fb.com/catalog/${num}`); //* как надо
 
 const fontSize = 26 + "px";
 
 // ? to Number
-// 1)
+//* 1)
 console.log(typeof Number("null"));
 console.log(Number("null"));
 
-// 2) унарный плюс
-console.log(typeof +"5");
-
-// 3)
+//* 3)
 console.log(typeof parseInt("15px", 10));
 console.log(parseInt("15px", 10));
 
+//* 2) унарный плюс как надо
+console.log(typeof +"5");
+
 // ? To boolean
-// * что всегда превращается в false:
-// *-- 0, '', null, undefind, NaN;
-// 1)
+// ! что всегда превращается в false:
+// !  0, '', null, undefind, NaN;
+//* 1)
 let switcher = null;
-if (switcher) {
+if (!switcher) {
 	console.log("Not working....");
 }
 switcher = 1;
@@ -1018,21 +1017,24 @@ if (switcher) {
 	console.log("Working....");
 }
 
-// 2)
-console.log(Boolean("null"));
-console.log(Boolean(null));
+//* 2)
+console.log(typeof Boolean("null"));
+console.log(typeof Boolean(null));
 
-// 3)
-console.log(Boolean(!!"null"));
-console.log(Boolean(!!null));
- */
+//* 3)
+console.log(typeof !!"null");
+console.log(typeof !!null);
+
+console.log(!!"null");
+console.log(!!null);
+*/
 
 // ! 027 задача по пониманию типов данных
 //Какое будет выведено значение: let x = 5; alert( x++ ); ?
 //5
 
 //Чему равно такое выражение: [ ] + false - null + true ?
-// console.log(typeof([ ] + false)); // пустой массив приводится в строку + фалсе к строке выходит строка "false"
+// console.log(typeof([ ] + false)); //* пустой массив приводится в строку + фалсе к строке выходит строка "false"
 // console.log(typeof('false' - null)); // математ. действие к строке выходит NaN
 // console.log(typeof(NaN + true)); // NaN + boolean = NaN
 // Что выведет этот код: let y = 1; let x = y = 2; alert(x); ?
@@ -1041,26 +1043,27 @@ console.log(Boolean(!!null));
 // Чему равна сумма [ ] + 1 + 2?
 // '12'
 
-// Что выведет этот код: alert( "1"[0] )?
-// 1
+// Что выведет этот код: alert( "1"[0] )? //*К каждому символу элементу строки можно обратьиться по его индексу
+// "1"
 
 // Чему равно 2 && 1 && null && 0 && undefined ?
-// ? оператор И (&&) запинается на лжи и выводит ее типа как через ретурн
-// ? оператор ИЛИ (||) запинается на правде
+// ! оператор И (&&) запинается на лжи и выводит ее типа как через ретурн
+// ! оператор ИЛИ (||) запинается на правде
 // null
 
 // Есть ли разница между выражениями? !!( a && b ) и (a && b)?
 // нет
 
+//                                         3
 // Что выведет этот код: alert( null || 2 && 3 || 4 ); ?
-// ? оператор ИЛИ (||) запинается на правде
+// ! У И (&&) приоритет выполнения выше, следовательно она будет выполняться первее (оператор ИЛИ (||) запинается на правде) 
 // 3
 
 // a = [1, 2, 3]; b = [1, 2, 3]; Правда ли что a == b ?
-// не верно, поскольку сравниваются не элементы массивов а сами массивы, и они разные
+//* не верно, поскольку сравниваются не элементы массивов а сами массивы, и они разные
 
 // Что выведет этот код: alert( +"Infinity" ); ?
-// 1
+// Infinity
 // console.log(typeof(+"Infinity"));
 // Infinity - число;
 
@@ -1071,26 +1074,26 @@ console.log(Boolean(!!null));
 // 2
 
 // ! 028 Получение элементов со страницы
-/* 
+
 // ? Устаревшие
-const box = document.getElementById("box");
-console.log(box);
+// const box = document.getElementById("box");
+// console.log(box);
 
-const btns = document.getElementsByTagName("button");
-console.log(btns[1]);
+// const btns = document.getElementsByTagName("button"); //* Всегда получаем ШТМЛ коллекцию (псевдомассив) со всеми кнопками на странице, даже если кнопка 1
+// console.log(btns[1]); //* выводим в консоль 2ю кнопку
 
-const circles = document.getElementsByClassName("circle");
-console.log(circles);
+// const circles = document.getElementsByClassName("circle");//* Всегда получаем ШТМЛ коллекцию (псевдомассив) со всеми элементами на странице, даже если он 1
+// console.log(circles);
 
 // ? Новые
-const hearts = document.querySelectorAll(".heart");
-hearts.forEach((item) => {
-	console.log(item);
-});
+// const hearts = document.querySelectorAll(".heart"); //* Получаем NodeList у которого есть 1 метод forEach
+// hearts.forEach((item) => {
+// 	console.log(item);
+// });
 
-const oneHeart = document.querySelector(".wrapper");
-console.log(oneHeart);
- */
+// const oneHeart = document.querySelector(".wrapper");
+// console.log(oneHeart);
+
 
 // ! 029 Действия с элементами на странице
 /* 
