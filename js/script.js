@@ -1096,74 +1096,83 @@ console.log(!!null);
 
 
 // ! 029 Действия с элементами на странице
-/* 
-const box = document.getElementById("box"),
-	btns = document.getElementsByTagName("button"),
-	circles = document.getElementsByClassName("circle"),
-	wrapper = document.querySelector(".wrapper"),
-	hearts = wrapper.querySelectorAll(".heart"),
-	oneHeart = wrapper.querySelector(".heart");
 
-box.style.backgroundColor = "#0f0";
-box.style.width = "200px";
+// const box = document.getElementById("box"),
+// 	btns = document.getElementsByTagName("button"),
+// 	circles = document.getElementsByClassName("circle"),
+// 	wrapper = document.querySelector(".wrapper"),
+// 	hearts = wrapper.querySelectorAll(".heart"),
+// 	oneHeart = wrapper.querySelector(".heart");
 
-box.style.cssText = "background-color: red; width: 500px";
+// console.dir(box); //*в консоле выводим свойства блока
+// box.style.backgroundColor = "#0f0"; //* добавляем инлайн стиль
+// box.style.width = "200px"; //* добавляем инлайн стиль
 
-btns[1].style.borderRadius = "100%";
+// box.style.cssText = "background-color: red; width: 500px"; //* добавляем много стилей одной командой
+// let someWidTh = 100;
+// box.style.cssText = `background-color: red; width: ${someWidTh}px`; //* добавляем много стилей одной командой с добавлением переменной
 
-for (let i = 0; i < hearts.length; i++) {
-	hearts[i].style.backgroundColor = "blue";
-}
-hearts.forEach((item) => {
-	item.style.backgroundColor = "#0f0";
-});
+// btns[4].style.borderRadius = "100%";
 
-const div = document.createElement("div"); //создание Дива в коде
-div.classList.add("black"); //добавление этому диву класса
-wrapper.prepend(div); //вставка дива в ДОМ (в начало враппера)
-wrapper.append(div); //вставка дива в ДОМ (в конец враппера)
+// for (let i = 0; i < hearts.length; i++) { //* Старый вариант //*применить стили сразу ко всем элементам
+// 	hearts[i].style.backgroundColor = "blue";
+// }
+// hearts.forEach((item) => { //*применить стили сразу ко всем элементам
+// 	item.style.backgroundColor = "#0f0";
+// });
 
-wrapper.insertBefore(div, hearts[1]); //устаревшая вставка что вставляем (див), и куда вставляем до 2го элемента сердца.
+// const div = document.createElement("div"); //* создание Дива в коде JS но не на странице
+// const text = document.createTextNode("Какой-то текст"); //* Создание текстовой ноды (применяется редко)
+// div.classList.add("black"); //* добавление этому диву класса 
 
-hearts[1].before(div); //вставка до элемента
-hearts[0].after(div); //вставка после элемента
+// hearts[1].before(div);
+// div.innerHTML = "<h1>Hellow world!</h1>"; //*добавление ШТМЛ внутри блока
+// div.textContent = "Hellow!"; //*добавление текста внутри блока
+// div.insertAdjacentHTML('beforebegin','<h2>Hellow</h2>');
 
-circles[0].remove(); //del
-wrapper.removeChild(hearts[1]); //удаление старое
+// wrapper.prepend(div); //* вставка дива в ДОМ (в начало враппера)
+// wrapper.append(div); //* вставка дива в ДОМ (в конец враппера)
 
-hearts[1].replaceWith(circles[0]); //заменить один элемент другим
-wrapper.replaceChild(circles[0,hearts[0]]); //замена старая
+// wrapper.insertBefore(div, hearts[1]); //* устаревшая вставка что вставляем (див), и куда вставляем до 2го элемента сердца.
 
-hearts[1].before(div);
-div.innerHTML = "<h1>Hellow world!</h1>";
-div.textContent = "Hellow!";
-div.insertAdjacentHTML('beforebegin','<h2>Hellow</h2>');
- */
+// hearts[1].before(div); //* вставка до элемента
+// hearts[0].after(div); //* вставка после элемента
+
+// circles[0].remove(); //* del
+// wrapper.removeChild(hearts[1]); //* удаление старое
+
+// hearts[0].replaceWith(circles[0]); //* заменить один элемент другим
+// wrapper.replaceChild(circles[0], hearts[0]); //* замена старая
 
 //! 031 События и их обработчики
-/* 
-const btn1 = document.querySelector(".btn1"),
-	btn2 = document.querySelector(".btn2"),
-	overlay = document.querySelector(".btn_wrapper"),
-	btn3 = overlay.querySelector(".btn3"),
-	btns = document.querySelectorAll("button");
- */
+
+// const btn1 = document.querySelector(".btn1"),
+// 	btn2 = document.querySelector(".btn2"),
+// 	overlay = document.querySelector(".btn_wrapper"),
+// 	btn3 = overlay.querySelector(".btn3"),
+// 	btns = document.querySelectorAll("button");
+
 // btn1.onclick = () => {
 // 	alert("click");
 // };
 // btn1.addEventListener("click", () => {
 // 	console.log("click");
 // });
+// btn1.addEventListener("click", () => {
+// 	console.log("click2");
+// });
 
-// btn1.addEventListener("mouseenter", (event) => {
-// 	console.log(event.target);
-// 	// console.log("mausenter (hover)");
+// btns[2].addEventListener("mouseenter", (event) => {
+// 	event.target.innerHTML = "222";
+// });
+// btns[2].addEventListener("click", (event) => {
+// 	event.target.innerHTML = "3";
 // });
 
 // let i = 0;
-// const chengeColorElem = (e) => {
-// ? добавление и убирание обработчика после отработки
+// const chengeColorElem = (e) => { //* добавление и убирание обработчика по условию
 // 	console.log(e.target);
+// 	e.target.style.backgroundColor = "#0f0";
 // 	i++;
 // 	if (i == 1) {
 // 		btn2.removeEventListener("click", chengeColorElem);
@@ -1171,54 +1180,51 @@ const btn1 = document.querySelector(".btn1"),
 // };
 // btn2.addEventListener("click", chengeColorElem);
 
-// const nElemListeners = (e) => {
+
+// const nElemListeners = (e) => { //! всплытие событий - это когда событие происходит сначала на самом глубоком уровне вложенности, а птом для всех вложенностей выше, если присвоены обработчики
 // 	console.log(e.target);
 // 	console.log(e.currentTarget);
 // 	console.log(e.type);
 // };
-// btns.forEach((btn) => {
-// 	// ? обработчик на все кнопки
-// 	btn.addEventListener("click", nElemListeners, { once: true }); //? 3й параметр который передаем аддЭвентЛис это опция (once - выполнить один раз)
+// btns.forEach(btn => {//* обработчик на все кнопки
+// 	btn.addEventListener("click", nElemListeners, { once: true }); //* 3й параметр который передаем аддЭвентЛис это опция (once - выполнить один раз для каждой кнопки)
 // });
-// const btn = document.querySelector('button');
-
-/* 
-function random(number) {
-	//? возвращает рандомный цвет
-	return Math.floor(Math.random() * (number + 1));
-}
-
-const funcClick = function () {
-	const rndCol =
-		"rgb(" + random(255) + "," + random(255) + "," + random(255) + ")";
-	this.style.backgroundColor = rndCol;
-};
-btn2.addEventListener("click", funcClick);
- */
 // btn3.addEventListener("click", nElemListeners);
 // overlay.addEventListener("click", nElemListeners);
 
+// function randomInt() { //? возвращает рандомное число от 0 до 255
+// 	return Math.floor(Math.random() * (255 + 1));
+// }
+// const funcClick = (e) => { //
+// 	e.target.style.backgroundColor = `rgb(${randomInt()},${randomInt()},${randomInt()})`;
+// 	// e.currentTarget.textContent = randomInt();
+// };
+// btn3.addEventListener("click", funcClick);
+// overlay.addEventListener("click", funcClick);
+
+
 // const link = document.querySelector("a");
 // link.addEventListener("click", (e) => {
-// 	e.preventDefault();// ? отмена событий по умолчанию
+// 	e.preventDefault();// * отмена событий по умолчанию
 // 	console.log(e.target);
 // });
 
 // ! 032 Навигация по DOM - элементам, data-атрибуты, преимущество for_of
 // console.log(document.head);
-// console.log(document.documentElement);
-// console.log(document.body.childNodes);
-// console.log(document.body.firstChild);
-// console.log(document.body.firstElementChild);
+// console.log(document.documentElement); //* все элементы на странице (сам тег html и его внутренности)
+// console.log(document.body.childNodes); //* все дети (внутренности) боди 
+// console.log(document.body.firstChild); //* первый ребенок 1й блок в бади (это символ переноса строки)
+// console.log(document.body.firstElementChild);//* первый ребенок 1й блок в бади который элемент
 // console.log(document.body.lastChild);
-// console.log(document.body.lastElementChild);
+// console.log(document.body.lastElementChild);//* последний ребенок 1й блок в бади который элемент
 
-// console.log(document.querySelector('#current').parentNode);
-// console.log(document.querySelector('#current').parentElement);
+// console.log(document.querySelector('#current').parentNode); //* родитель элемента который может быть каким-то текстом или переносом строки
+// console.log(document.querySelector('#current').parentElement);//* родитель элемента который не перенос строки
 
-// console.log(document.querySelector('data-current="3"').nextElementSibling);
+//* Дата атребуты синтаксис слово data-... рандомные слова
+// console.log(document.querySelector('[data-current="3"]').nextElementSibling); //* получить следующего соседа который не перенос строки
 
-// for (let node of document.body.childNodes) {
+// for (let node of document.body.childNodes) { //*вывести все кроме текстовых нод
 // 	if (node.nodeName == "#text") {
 // 		continue;
 // 	}
