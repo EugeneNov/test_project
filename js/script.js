@@ -1228,44 +1228,44 @@ console.log(!!null);
 // 	if (node.nodeName == "#text") {
 // 		continue;
 // 	}
-// 	console.log(node);
+// 	console.log(node); 
 // }
 // ! 034 События на мобильных устройствах
-// touchstart
-// touchmove
-// touchend
-// touchenter
-// touchleave
-// touchcancel
-/* 
-window.addEventListener("DOMContentLoaded", () => {
-	const box = document.querySelector("#box");
+// touchstart //* касание по элементу
+// touchmove //* коснулся и двигается палец по ээлементу
+// touchend //* оторвался от элемента
+// touchenter //*палец зашел на пределы этого элемента
+// touchleave //*ушел за пределы элемента
+// touchcancel //* точка касания не регистрируется на элементе
 
-	box.addEventListener("touchstart", (e) => {
-		e.preventDefault();
+// window.addEventListener("DOMContentLoaded", () => {
+// 	const box = document.querySelector("#box");
 
-		console.log("start");
-	});
+// 	box.addEventListener("touchstart", (e) => {
+// 		e.preventDefault();
 
-	box.addEventListener("touchmove", (e) => {
-		e.preventDefault();
+// 		console.log("start");
+// 	});
 
-		console.log(e.targetTouches[0].pageX);
-	});
+// 	box.addEventListener("touchmove", (e) => {
+// 		e.preventDefault();
 
-	box.addEventListener("touchend", (e) => {
-		e.preventDefault();
+// 		console.log(e.targetTouches[0].pageX); //* по каким карденатам елозит 1й палец (0 значит 1й)
+// 	});
 
-		console.log("end");
-	});
-});
- */
-// touches
-// targetTouches
-// chengedTouches
+// 	box.addEventListener("touchend", (e) => {
+// 		e.preventDefault();
+
+// 		console.log("end");
+// 	});
+// });
+
+// touches //* список всех пальцев на экране
+// targetTouches //* список всех пальцев которые взаимадействуют с таргетом
+// chengedTouches //* список пальцев которые участвуют в текущем событии
 
 // ! 035 Async, defer, динамические скрипты
-/* 
+
 // В HTML: <script async src="/js/script.js"></script>
 // ? async -- загрузка паралельно со всем остальным, и выполнится как только будет готов, не ждет ДОМ, и другие скрипты
 
@@ -1275,12 +1275,12 @@ window.addEventListener("DOMContentLoaded", () => {
 function loadScript(src) {
 	const script = document.createElement("script");
 	script.src = src;
-	script.async = false; //по умолчанию true для динамически добавляемых на страницу скриптов
+	script.async = false; //*по умолчанию true для динамически добавляемых на страницу скриптов
 	document.body.append(script);
 }
 
 // loadScript(какой-то путь к скрипту)
- */
+
 
 // ! 037 ClassList и делегирование событий
 /* 
