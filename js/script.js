@@ -1272,12 +1272,12 @@ console.log(!!null);
 // В HTML: <script defer src="/js/script.js"></script>
 // ? defer -- загрузка паралельно с ДОМ, но выполнится только после загрузки ДОМ, следующий скрипт с таким параметром, будет ждать загрузки этого скрипта прежде чем начнет сам загружаться
 
-function loadScript(src) {
-	const script = document.createElement("script");
-	script.src = src;
-	script.async = false; //*по умолчанию true для динамически добавляемых на страницу скриптов
-	document.body.append(script);
-}
+// function loadScript(src) {
+// 	const script = document.createElement("script");
+// 	script.src = src;
+// 	script.async = false; //*по умолчанию true для динамически добавляемых на страницу скриптов
+// 	document.body.append(script);
+// }
 
 // loadScript(какой-то путь к скрипту)
 
