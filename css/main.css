@@ -98,3 +98,24 @@ button:hover {
 .first {
 	background-color: #b1a5ab;
 }
+.boxX {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}
+.wrapperR {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  border: 3px solid red;
+}
+button.btnN {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 100px;
+  height: 40px;
+  background-color: yellow;
+  border: none;
+	color: black;
+}

@@ -1329,3 +1329,114 @@ console.log(!!null);
 // const newBtn = document.createElement("button");//* динамически добавляем еще 1 баттон
 // newBtn.classList.add("red");
 // btnsWrapper.append(newBtn);
+
+// ! 039 Скрипты и время их выполнения. setTimeout и setInterval
+
+// const timerId = setTimeout((text) => {
+// 	console.log(text);
+// }, 2000, "Прошло 2 секунды");//* передать в фукцию значения можно после указания таймера
+
+// const btnN = document.querySelector(".btnN");
+// let timerId,
+// 		i =0;
+// btnN.addEventListener('click', () => {
+// 	// const timerId = setTimeout(logger, 2000);//* передача готовой функции
+// 	timerId = setInterval(logger, 500);//! Сет интервал не учитывает сколько будет выполняться функция внутри него, а просто вызывает ее через указанной время, даже если она еще не отработала
+// 	clearInterval(recurseTimeout);
+// });
+
+// function logger () {
+// 	if (i == 3){
+// 		clearInterval(timerId); //* Убрать выполнение вункции по таймеру
+// 	}
+// 	console.log("Some text");
+// 	i++;
+// }
+
+// let recurseTimeout = setTimeout(function log(){ //! сет интервал через рекурсивный вызов сет таймаут
+// 	console.log("hi");
+// 	recurseTimeout = setTimeout(log, 500);
+// }, 500);
+
+
+// const btnN = document.querySelector(".btnN"); //! Моя анимация через сет интервал
+// btnN.addEventListener('click', myAnim);
+// function myAnim(speedInMs = 10) {
+// 	const box = document.querySelector(".boxX");
+// 	let posTop = 0,
+// 			posLeft = 0;
+
+// 	const intervalAnim = setInterval(() => {
+// 			box.style.top = `${posTop += 1}px`;
+// 			box.style.left = `${posLeft += 1}px`;
+// 			if(posTop >= 300){
+// 				clearInterval(intervalAnim);
+// 			}
+// 		}, speedInMs);
+// }
+
+
+// const btnN = document.querySelector(".btnN"); //! Как надо
+// btnN.addEventListener('click', myAnim);
+
+// function myAnim () {
+// 	const elem = document.querySelector('.boxX');
+// 	let pos =0;
+
+// 	const id = setInterval(frame, 10);
+// 	function frame() {
+// 		if(pos == 300){
+// 			clearInterval(id);
+// 		} else {
+// 			pos++;
+// 			elem.style.top = pos + "px";
+// 			elem.style.left = pos + "px";
+// 		}
+// 	}
+// }
+
+//! 040 Работа с датами
+
+// const now = new Date("2023-08-09"); //* передаем дату в виде строки
+// const now = new Date(2023, 8, 9, 20); //* передаем дату в прямых аргументов (месяца считаются с 0, 17 часов потому, чо часовой пояс +3)
+// const now = new Date(0); //* передаем в миллисикундах и хранится в JS в миллисекундах (отчет от 1 января 1970 года)
+// const now = new Date(); //* дата сейчас
+
+// console.log(now.setHours(18, 40)); //*установить часы (следующий аргумент идет минуты, следующий секунды и т.д.) (если установить число большее чем число часов в сутках, то будет пересчет асов и добавление лишних в дни)
+// console.log(now); 
+
+
+
+// console.log(now.getFullYear()); //*получение года
+// console.log(now.getMonth()); //*получение месяца
+// console.log(now.getDate()); //*получение дня
+
+// console.log(now.getHours()); //*получение часов
+// console.log(now.getUTCHours()); //*получение часов по гринвичу
+
+// console.log(now.getMinutes()); //*получение минут
+// console.log(now.getSeconds()); //*получение секунд
+// console.log(now.getMilliseconds()); //*получение милисекунд
+// console.log(now.getDay()); //*Вернуть день недели от 0 (воскресенье) до 6 (суббота)
+
+// console.log(now.getTimezoneOffset()); //*получение разницы в минутах между моим часовым поясом и гринвичем]
+// console.log(now.getTime()); //*число в миллисекундах которое прошло с 1970 года
+
+
+// let start = Date.now(); //! для измерения временного промежутка Date.now() - возвращает текущую метку времени в милисекундах
+// console.log(start);
+// for (let i = 1; i < 100000; i++){
+// 	let some = i ** 3;
+// }
+// let end = Date.now(); 
+// console.log(end);
+// console.log(`Цикл отработал за ${end - start} миллисекунд`)
+
+// function getWeekDay(date) { //* функция получает дату и выводит в консоль какой день недели был
+// 	let days = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
+
+// 	return days[date.getDay()];
+// }
+
+// let date = new Date(2014, 0, 3); // 3 января 2014 года
+// console.log( getWeekDay(date) ); // ПТ
