@@ -119,3 +119,11 @@ button.btnN {
   border: none;
 	color: black;
 }
+.lesdoc{
+	box-sizing: border-box;
+	width: 300px;
+	height: 300px;
+	margin: 200px auto;
+	padding: 10px;
+	overflow: auto;
+}

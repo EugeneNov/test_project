@@ -1440,3 +1440,35 @@ console.log(!!null);
 
 // let date = new Date(2014, 0, 3); // 3 января 2014 года
 // console.log( getWeekDay(date) ); // ПТ
+
+//! 042 Параметры документа, окна и работа с ними
+
+// const box = document.querySelector('.lesdoc');
+
+// const width = box.clientWidth; //* реальная видимая пользователю высота и ширина окна
+// const height = box.clientHeight;
+
+// const width = box.offsetWidth; //* фактически как установлена в цss
+// const height = box.offsetHeight;
+
+// const width = box.scrollWidth; //* полные размеры со скроллом
+// const height = box.scrollHeight;
+
+// console.log(width, height);
+
+// box.addEventListener('click', (e) => {
+// 	// e.target.style.height = `${box.scrollHeight}px`; //* делаем высоту блока равной высоте вместе с прокруткой всего контента
+// 	console.log(box.scrollTop); //* при клике в блоке в консоле будет видно сколько пролистано контента в пикселях 
+// 	console.log(document.documentElement.scrollTop = 0);
+// 	// window.scrollBy(0, 100); //*проскролить на 100 пикселей от верха
+// 	window.scrollTo(0, 1000); //*проскролить на 200 пикселей от текущего положения
+// });
+
+// console.log(box.getBoundingClientRect()); //* можем получить свойства тол леф и т.д. только они считаются все от левой стороны и верха
+// console.log(box.getBoundingClientRect().top); //* получаем только свойство топ
+
+// const styleBox = window.getComputedStyle(box); //* получение скомпелированных всех стилей которые применены к объекту
+// console.log(styleBox.display); //* получаем значение свойства дисплей объекта
+
+// console.log(document.documentElement.scrollTop); //* сколько проскролено
+
