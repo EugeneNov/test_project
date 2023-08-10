@@ -1472,3 +1472,145 @@ console.log(!!null);
 
 // console.log(document.documentElement.scrollTop); //* сколько проскролено
 
+//! 045 Функции-конструкторы
+//! Нужны для создания новых однотипных объектов (пользователи сайта, товары в магазинах, ролики на ютубе, везде где есть шаблонизация)
+//! функции-конструкторы, это то, что находится под копотом, в работе используются для этого классы
+
+// function useR(name, age) { //* создание прототипа объекта
+// 	this.name = name; //* свойство
+// 	this.age = age;
+// 	this.human = true;
+// 	this.hello = function(){ //* метод
+// 		console.log(`Hello ${this.name}`);
+// 	};
+// }
+// useR.prototype.exit = function() { //* добавление нового метода отдельно, если нет доступа к основной функции
+// 	console.log(`Пользователь ${this.name} вышел`);
+// }
+// //! Тоже самое написанное в виде класса:
+// class useR {
+// 	constructor(name, age) {
+// 		this.name = name; //* свойство
+// 		this.age = age;
+// 		this.human = true;
+// 	}
+// 	hello() {
+// 		console.log(`Hello ${this.name}`);
+// 	}
+// 	exit() {
+// 		console.log(`Пользователь ${this.name} вышел`);
+// 	}
+// }
+
+// //! создание новых копий объекта
+// const ivan = new useR('Ivan', 44);
+// const eugene = new useR('Eugene', 35);
+
+// //! использование
+// console.log(ivan);
+// console.log(eugene.hello());
+// eugene.exit();
+
+//! 046 Контекст вызова. This
+//! Функция может вызываться 4 методами и во всех контекст вызова разный
+// function showThis(a, b) { //todo 1 вариант (Обычная функция) this - window, но если стоит строгий режим "use strict" контекст вызова this = undefined 
+// 	console.log(this);
+// 	function sum() {
+// 		console.log(this);
+		// return this.a + this.b; //* контекст вызова undefined - не будет работать
+// 		return a + b; //* пох на контекст вызова берет данные с родительской функции
+
+// 	}
+
+// 	console.log(sum());
+// }
+// showThis(4,4);
+
+
+
+// const obj = {//todo 2 вариант (Объект) если мы используем метод внутри объекта то его контекст вызова будет этот самый объект
+// 	a: 20,
+// 	b: 15,
+// 	sum: function() { //* выдает объект весь
+// 		console.log(this);
+// 	},
+// 	bz: function() {//* undefined 
+// 		function bz2 () { //* undefined - здесь был утрачен контекст вызова
+// 			console.log(this);
+// 		}
+// 		bz2();
+// 	}
+// };
+// obj.sum(); //* равно {a: 20, b: 15, sum: ƒ}
+// obj.bz(); //* undefined - поскольку это обычный вызов функции который никак не относится к методу объекта
+
+
+
+// function useR(name, age) { //todo 3 вариант (Функция конструктор) this в конструкотора и классах - это новый экземпляр объекта
+// 	this.name = name; //* свойство
+// 	this.age = age;
+// 	this.human = true;
+// 	this.hello = function(){ //* метод
+// 		console.log(`Hello ${this.name}`);
+// 	};
+// }
+// useR.prototype.exit = function() { //* добавление нового метода отдельно, если нет доступа к основной функции
+// 	console.log(`Пользователь ${this.name} вышел`);
+// }
+// const ivan = new useR('Ivan', 44); //todo КОНТЕКСТ ВЫЗОВА ivan
+
+
+
+// function sayName(surname) {//todo 4 вариант (Ручное присвоение контекста) 2 метода которые используют существующую функцию (.call(), .apply()) и 1 метод который создает новую
+// 	console.log(this);
+// 	console.log(this.name + surname);
+// }
+
+// const user = {
+// 	name: 'John'
+// };
+
+// sayName.call(user, 'Piper'); //todo для функции sayName назначаем контекст вызова объект user, доп аргументы функция принимает через запятую в виде строк
+// sayName.apply(user, ['Biber']);//todo для функции sayName назначаем контекст вызова объект user, доп аргументы функция принимает через запятую в виде массива
+
+
+
+// function count(num) {
+// 	return this*num;
+// }
+
+// const double = count.bind(2); //todo создает новую функцию double в которой (2) передается вместо this
+// console.log(double(4));
+
+
+// const obj = {
+// 	a: 20,
+// 	b: 15,
+// 	sum: function() { //todo выдает объект весь
+// 		console.log(this);
+// 	},
+// 	bz: function() {//todo контекст вызова объект obj
+// 		const bz2 = () => { //! контекст вызова берет у родителя поскольку своего контекста вызова не имеет
+// 			console.log(this);
+// 		}
+
+// 		bz2();
+// 	}
+// };
+// obj.bz(); //* {a: 20, b: 15, sum: ƒ, bz: ƒ}
+
+
+// const double = (a) => {//* если действие стрелочной функции помещается в 1 строку и она имеет 1 аргумент ее можно переписать короче
+// 	return a * 2;
+// }
+// const double = a => a * 2; //* сокращенное написание той же функции (скобки убрали, return подставляется автоматически)
+
+const btn1 = document.querySelector('.btn1');
+
+// btn1.addEventListener('click', function() {//todo если колбек функция обработчика введена в классическом режиме через function() ее контекстом вызова будет сам объект на котором произошло событие (this = event.target)
+// 	console.log(this);
+// });
+
+btn1.addEventListener('click', () => {//todo если колбек функция обработчика введена в виде стрелочной функции () => {} ее контекст будет утерян, поскольку сама стрелочная функция не имеет своего контекста вызова и берет его у родителя, тут родитель window 
+	console.log(this); //* Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+});
