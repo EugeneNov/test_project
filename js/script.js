@@ -1561,7 +1561,7 @@ console.log(!!null);
 
 
 
-// function sayName(surname) {//todo 4 вариант (Ручное присвоение контекста) 2 метода которые используют существующую функцию (.call(), .apply()) и 1 метод который создает новую
+// function sayName(surname) {//todo 4 вариант (Ручное присвоение контекста) 2 метода которые используют существующую функцию (.call(), .apply()) и 1 метод который создает новую .bind()
 // 	console.log(this);
 // 	console.log(this.name + surname);
 // }
@@ -1605,12 +1605,58 @@ console.log(!!null);
 // }
 // const double = a => a * 2; //* сокращенное написание той же функции (скобки убрали, return подставляется автоматически)
 
-const btn1 = document.querySelector('.btn1');
+// const btn1 = document.querySelector('.btn1');
 
 // btn1.addEventListener('click', function() {//todo если колбек функция обработчика введена в классическом режиме через function() ее контекстом вызова будет сам объект на котором произошло событие (this = event.target)
 // 	console.log(this);
 // });
 
-btn1.addEventListener('click', () => {//todo если колбек функция обработчика введена в виде стрелочной функции () => {} ее контекст будет утерян, поскольку сама стрелочная функция не имеет своего контекста вызова и берет его у родителя, тут родитель window 
-	console.log(this); //* Window {window: Window, self: Window, document: document, name: '', location: Location, …}
-});
+// btn1.addEventListener('click', () => {//todo если колбек функция обработчика введена в виде стрелочной функции () => {} ее контекст будет утерян, поскольку сама стрелочная функция не имеет своего контекста вызова и берет его у родителя, тут родитель window 
+// 	console.log(this); //* Window {window: Window, self: Window, document: document, name: '', location: Location, …}
+// });
+
+
+
+//! 047 Классы (ES6)
+//! Классы - это красивая обертка функций-конструкторов, или говоря другими словами синтаксический сахар
+
+// class Rectangle { //* название нужно делать с большой буквы
+// 	constructor(height, width) { //* аргументы которые приходят извне при создании экземпляра класса
+// 		this.height = height; //* свойство
+// 		this.width = width; //* свойство
+
+// 	}
+
+// 	calcArea() { //*создаем метод
+// 		return this.height * this.width;
+// 	}
+// }
+
+// const sq = new Rectangle(10, 10);
+// const long = new Rectangle(20, 100);
+
+// console.log(sq.calcArea());
+// console.log(long.calcArea());
+
+
+// class ColoredRectangleWithText extends Rectangle { //* создаем новый класс который наследует все методы и свойства у Rectangle
+// 	constructor(height, width, text, bgColor){
+// 		super(height, width); //! ДОЛЖНА БЫТЬ всегда на 1м месте в конструкторе подтягивает от родителя строки присвоения свойств this.height = height; и this.width = width; ||| (в скобках указываем те свойства что нам нужны, если скобки пустые копирует все свойства)
+// 		this.text = text;
+// 		this.bgColor = bgColor;
+// 	}
+
+// 	//* метод calcArea() также подтягивается от родителя
+// 	showMyProps(){ //*создаем новый метод
+// 		console.log(`Высота: ${this.height}, Ширина: ${this.width}, Текст: ${this.text}, Цвет: ${this.bgColor}`);
+// 	}
+// }
+
+// const colorfullR = new ColoredRectangleWithText(30, 5, 'akdls', '#fff');
+// colorfullR.showMyProps();
+// console.log(colorfullR.calcArea());
+
+
+//todo Принципы ООП
+//todo 1. Абстракция - отделение концепции от ее экземпляра
+//todo 2. Наследование - способность объекта или класса базироваться на другом объекте или классе
